@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://demo/games/Auth.tscn" type="PackedScene" id=1]
+[ext_resource path="res://demo/games/Create.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/games/Update.tscn" type="PackedScene" id=3]
+[ext_resource path="res://demo/games/Get.tscn" type="PackedScene" id=4]
+
+[node name="GameApi" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="TabContainer2" type="TabContainer" parent="."]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 992.0
+margin_bottom = 568.0
+tab_align = 0
+
+[node name="Games" type="TabContainer" parent="TabContainer2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+
+[node name="Get" parent="TabContainer2/Games" instance=ExtResource( 4 )]
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Auth" parent="TabContainer2/Games" instance=ExtResource( 1 )]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Create" parent="TabContainer2/Games" instance=ExtResource( 2 )]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Update" parent="TabContainer2/Games" instance=ExtResource( 3 )]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0

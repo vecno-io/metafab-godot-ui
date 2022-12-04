@@ -75,6 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Metafab-godot"
+run/main_scene="res://demo/App.tscn"
 config/icon="res://icon.png"
 
 [autoload]
