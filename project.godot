@@ -1,0 +1,98 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "MetaFabRequest",
+"class": "MetaFabContracts",
+"language": "GDScript",
+"path": "res://addons/metafab-api/contracts/Contracts.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabCurrencies",
+"language": "GDScript",
+"path": "res://addons/metafab-api/currencies/Currencies.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabGames",
+"language": "GDScript",
+"path": "res://addons/metafab-api/games/Games.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabItems",
+"language": "GDScript",
+"path": "res://addons/metafab-api/items/Items.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabLootboxes",
+"language": "GDScript",
+"path": "res://addons/metafab-api/lootboxes/Lootboxes.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabPlayers",
+"language": "GDScript",
+"path": "res://addons/metafab-api/players/Players.gd"
+}, {
+"base": "HTTPRequest",
+"class": "MetaFabRequest",
+"language": "GDScript",
+"path": "res://addons/metafab-api/MetaFabRequest.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabShops",
+"language": "GDScript",
+"path": "res://addons/metafab-api/shops/Shops.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabTransactions",
+"language": "GDScript",
+"path": "res://addons/metafab-api/transactions/Transactions.gd"
+}, {
+"base": "MetaFabRequest",
+"class": "MetaFabWallets",
+"language": "GDScript",
+"path": "res://addons/metafab-api/wallets/Wallets.gd"
+} ]
+_global_script_class_icons={
+"MetaFabContracts": "",
+"MetaFabCurrencies": "",
+"MetaFabGames": "",
+"MetaFabItems": "",
+"MetaFabLootboxes": "",
+"MetaFabPlayers": "",
+"MetaFabRequest": "",
+"MetaFabShops": "",
+"MetaFabTransactions": "",
+"MetaFabWallets": ""
+}
+
+[application]
+
+config/name="Metafab-godot"
+config/icon="res://icon.png"
+
+[autoload]
+
+MetaFab="*res://addons/metafab-api/MetaFab.tscn"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/metafab-api/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
