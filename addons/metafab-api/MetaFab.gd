@@ -131,26 +131,26 @@ func _currencies_api_init(call_object: Object, call_function: String) -> MetaFab
 	Games API
 """
 
-func get_game(call_object: Object, call_function: String) -> String:
+func get_game(call_object: Object, call_function: String, game_id: String) -> String:
 	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.get_game()
+	if req != null: return req.get_game(game_id)
 	return ERROR_CALL_OBJECT
 
 
-func create_game(call_object: Object, call_function: String) -> String:
+func create_game(call_object: Object, call_function: String, name: String, email: String, password: String) -> String:
 	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.create_game()
+	if req != null: return req.create_game(name, email, password)
 	return ERROR_CALL_OBJECT
 
-func update_game(call_object: Object, call_function: String) -> String:
+func update_game(call_object: Object, call_function: String, game_id: String, secret_key: String, game_info: Dictionary) -> String:
 	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.update_game()
+	if req != null: return req.update_game(game_id, secret_key, game_info)
 	return ERROR_CALL_OBJECT
 
 
-func authenticate_game(call_object: Object, call_function: String) -> String:
+func authenticate_game(call_object: Object, call_function: String, email: String, password: String) -> String:
 	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.authenticate_game()
+	if req != null: return req.authenticate_game(email, password)
 	return ERROR_CALL_OBJECT
 
 
