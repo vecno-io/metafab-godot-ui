@@ -15,6 +15,16 @@ func get_game(game_id: String) -> String:
 	else: return MetaFabRequest.Ok
 
 
+func auth_game(email: String, password: String) -> String:
+	var auth = Marshalls.utf8_to_base64("%s:%s" % [email, password])
+	var headers = [
+		"accept: application/json",
+		"authorization: Basic %s" % auth
+	]
+	var err = self.request("https://api.trymetafab.com/v1/games/auth", headers, true, HTTPClient.METHOD_GET)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
+
 func create_game(name: String, email: String, password: String) -> String:
 	var payload = to_json({
 		"name": name,
@@ -43,16 +53,5 @@ func update_game(game_id: String, secret_key: String, game_info: Dictionary) -> 
 		"https://api.trymetafab.com/v1/games/%s" % game_id, 
 		headers, true, HTTPClient.METHOD_PATCH, payload
 	)
-	if err != OK:  return MetaFabRequest.get_error(err) % name
-	else: return MetaFabRequest.Ok
-
-
-func authenticate_game(email: String, password: String) -> String:
-	var auth = Marshalls.utf8_to_base64("%s:%s" % [email, password])
-	var headers = [
-		"accept: application/json", 
-		"authorization: Basic %s" % auth
-	]
-	var err = self.request("https://api.trymetafab.com/v1/games/auth", headers, true, HTTPClient.METHOD_GET)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok

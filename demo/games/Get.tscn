@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://demo/games/GetGame.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/ErrorBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/shared/GameResult.tscn" type="PackedScene" id=3]
 
 [node name="Get" type="HBoxContainer"]
 anchor_right = 1.0
@@ -79,167 +81,9 @@ custom_constants/margin_top = 8
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 8
 
-[node name="Scroll-Error" type="ScrollContainer" parent="MBox-Result"]
+[node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[node name="GameResult" parent="MBox-Result" instance=ExtResource( 3 )]
 unique_name_in_owner = true
 visible = false
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 480.0
-margin_bottom = 592.0
-size_flags_horizontal = 3
-
-[node name="Grid-Error" type="GridContainer" parent="MBox-Result/Scroll-Error"]
-margin_right = 464.0
-margin_bottom = 60.0
-size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
-columns = 2
-
-[node name="Label-v01" type="Label" parent="MBox-Result/Scroll-Error/Grid-Error"]
-margin_top = 5.0
-margin_right = 120.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 120, 0 )
-text = "Code"
-
-[node name="ErrorCodeField" type="LineEdit" parent="MBox-Result/Scroll-Error/Grid-Error"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_right = 464.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Label-v02" type="Label" parent="MBox-Result/Scroll-Error/Grid-Error"]
-margin_top = 41.0
-margin_right = 120.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 120, 0 )
-text = "Message"
-
-[node name="ErrorMessageField" type="LineEdit" parent="MBox-Result/Scroll-Error/Grid-Error"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
-margin_right = 464.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Scroll-Result" type="ScrollContainer" parent="MBox-Result"]
-unique_name_in_owner = true
-visible = false
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 480.0
-margin_bottom = 592.0
-size_flags_horizontal = 3
-
-[node name="Grid-Result" type="GridContainer" parent="MBox-Result/Scroll-Result"]
-margin_right = 464.0
-margin_bottom = 168.0
-size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
-columns = 2
-
-[node name="Label-v01" type="Label" parent="MBox-Result/Scroll-Result/Grid-Result"]
-margin_top = 5.0
-margin_right = 120.0
-margin_bottom = 19.0
-rect_min_size = Vector2( 120, 0 )
-text = "Name"
-
-[node name="NameField" type="LineEdit" parent="MBox-Result/Scroll-Result/Grid-Result"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_right = 464.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Label-v02" type="Label" parent="MBox-Result/Scroll-Result/Grid-Result"]
-margin_top = 41.0
-margin_right = 120.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 120, 0 )
-text = "Created At"
-
-[node name="CreatedAtField" type="LineEdit" parent="MBox-Result/Scroll-Result/Grid-Result"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
-margin_right = 464.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Label-v03" type="Label" parent="MBox-Result/Scroll-Result/Grid-Result"]
-margin_top = 77.0
-margin_right = 120.0
-margin_bottom = 91.0
-rect_min_size = Vector2( 120, 0 )
-text = "Updated At"
-
-[node name="UpdatedAtField" type="LineEdit" parent="MBox-Result/Scroll-Result/Grid-Result"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 72.0
-margin_right = 464.0
-margin_bottom = 96.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Label-v04" type="Label" parent="MBox-Result/Scroll-Result/Grid-Result"]
-margin_top = 113.0
-margin_right = 120.0
-margin_bottom = 127.0
-rect_min_size = Vector2( 120, 0 )
-text = "Game Id"
-
-[node name="GameIdField" type="LineEdit" parent="MBox-Result/Scroll-Result/Grid-Result"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 108.0
-margin_right = 464.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-
-[node name="Label-v05" type="Label" parent="MBox-Result/Scroll-Result/Grid-Result"]
-margin_top = 149.0
-margin_right = 120.0
-margin_bottom = 163.0
-rect_min_size = Vector2( 120, 0 )
-text = "Published Key"
-
-[node name="PublishedKeyField" type="LineEdit" parent="MBox-Result/Scroll-Result/Grid-Result"]
-unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 144.0
-margin_right = 464.0
-margin_bottom = 168.0
-rect_min_size = Vector2( 160, 0 )
-size_flags_horizontal = 3
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5

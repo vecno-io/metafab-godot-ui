@@ -1,0 +1,238 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://demo/shared/GameResult.gd" type="Script" id=1]
+
+[node name="GameResult" type="ScrollContainer"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 480.0
+margin_bottom = 592.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+
+[node name="Grid-Result" type="GridContainer" parent="."]
+margin_right = 464.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v01" type="Label" parent="Grid-Result"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Name"
+
+[node name="NameField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="Grid-Result"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "Created At"
+
+[node name="CreatedAtField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v03" type="Label" parent="Grid-Result"]
+margin_top = 77.0
+margin_right = 120.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 120, 0 )
+text = "Updated At"
+
+[node name="UpdatedAtField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 72.0
+margin_right = 464.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v04" type="Label" parent="Grid-Result"]
+margin_top = 113.0
+margin_right = 120.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 120, 0 )
+text = "Game Id"
+
+[node name="GameIdField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 108.0
+margin_right = 464.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v05" type="Label" parent="Grid-Result"]
+margin_top = 149.0
+margin_right = 120.0
+margin_bottom = 163.0
+rect_min_size = Vector2( 120, 0 )
+text = "Secret Key"
+
+[node name="SecretKeyField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 144.0
+margin_right = 464.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v06" type="Label" parent="Grid-Result"]
+margin_top = 185.0
+margin_right = 120.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 120, 0 )
+text = "Published Key"
+
+[node name="PublishedKeyField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 180.0
+margin_right = 464.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v07" type="Label" parent="Grid-Result"]
+margin_top = 216.0
+margin_right = 120.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 120, 0 )
+text = "Wallet"
+
+[node name="HSeparator" type="HSeparator" parent="Grid-Result"]
+margin_left = 132.0
+margin_top = 216.0
+margin_right = 464.0
+margin_bottom = 230.0
+custom_constants/separation = 12
+
+[node name="Label-v08" type="Label" parent="Grid-Result"]
+margin_top = 247.0
+margin_right = 120.0
+margin_bottom = 261.0
+rect_min_size = Vector2( 120, 0 )
+text = " - Id"
+
+[node name="WalletIdField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 242.0
+margin_right = 464.0
+margin_bottom = 266.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v09" type="Label" parent="Grid-Result"]
+margin_top = 283.0
+margin_right = 120.0
+margin_bottom = 297.0
+rect_min_size = Vector2( 120, 0 )
+text = " - Account"
+
+[node name="WalletAccField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 278.0
+margin_right = 464.0
+margin_bottom = 302.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v10" type="Label" parent="Grid-Result"]
+margin_top = 314.0
+margin_right = 120.0
+margin_bottom = 328.0
+rect_min_size = Vector2( 120, 0 )
+text = "Funding"
+
+[node name="HSeparator2" type="HSeparator" parent="Grid-Result"]
+margin_left = 132.0
+margin_top = 314.0
+margin_right = 464.0
+margin_bottom = 328.0
+custom_constants/separation = 12
+
+[node name="Label-v11" type="Label" parent="Grid-Result"]
+margin_top = 345.0
+margin_right = 120.0
+margin_bottom = 359.0
+rect_min_size = Vector2( 120, 0 )
+text = " - Id"
+
+[node name="FundingIdField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 340.0
+margin_right = 464.0
+margin_bottom = 364.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v12" type="Label" parent="Grid-Result"]
+margin_top = 381.0
+margin_right = 120.0
+margin_bottom = 395.0
+rect_min_size = Vector2( 120, 0 )
+text = " - Account"
+
+[node name="FundingAccField" type="LineEdit" parent="Grid-Result"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 376.0
+margin_right = 464.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
