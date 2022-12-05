@@ -137,6 +137,11 @@ func get_game(call_object: Object, call_function: String, game_id: String) -> St
 	return ERROR_CALL_OBJECT
 
 
+func auth_game(call_object: Object, call_function: String, email: String, password: String) -> String:
+	var req = self._games_api_init(call_object, call_function)
+	if req != null: return req.auth_game(email, password)
+	return ERROR_CALL_OBJECT
+
 func create_game(call_object: Object, call_function: String, name: String, email: String, password: String) -> String:
 	var req = self._games_api_init(call_object, call_function)
 	if req != null: return req.create_game(name, email, password)
@@ -145,12 +150,6 @@ func create_game(call_object: Object, call_function: String, name: String, email
 func update_game(call_object: Object, call_function: String, game_id: String, secret_key: String, game_info: Dictionary) -> String:
 	var req = self._games_api_init(call_object, call_function)
 	if req != null: return req.update_game(game_id, secret_key, game_info)
-	return ERROR_CALL_OBJECT
-
-
-func authenticate_game(call_object: Object, call_function: String, email: String, password: String) -> String:
-	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.authenticate_game(email, password)
 	return ERROR_CALL_OBJECT
 
 
@@ -350,36 +349,41 @@ func _lootboxes_api_init(call_object: Object, call_function: String) -> MetaFabL
 	Players API
 """
 
-func get_player(call_object: Object, call_function: String) -> String:
+func get_player(call_object: Object, call_function: String, player_id: String) -> String:
 	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.get_player()
+	if req != null: return req.get_player(player_id)
 	return ERROR_CALL_OBJECT
 
-func get_players(call_object: Object, call_function: String) -> String:
+func get_players(call_object: Object, call_function: String, game_priv_key: String) -> String:
 	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.get_players()
-	return ERROR_CALL_OBJECT
-
-
-func auth_player(call_object: Object, call_function: String) -> String:
-	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.auth_player()
-	return ERROR_CALL_OBJECT
-
-func create_player(call_object: Object, call_function: String) -> String:
-	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.create_player()
+	if req != null: return req.get_players(game_priv_key)
 	return ERROR_CALL_OBJECT
 
 
-func get_player_data(call_object: Object, call_function: String) -> String:
+func auth_player(call_object: Object, call_function: String, game_pub_key: String, username: String, password: String) -> String:
 	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.get_player_data()
+	if req != null: return req.auth_player(game_pub_key, username, password)
 	return ERROR_CALL_OBJECT
 
-func set_player_data(call_object: Object, call_function: String) -> String:
+func create_player(call_object: Object, call_function: String, game_pub_key: String, username: String, password: String) -> String:
 	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.set_player_data()
+	if req != null: return req.create_player(game_pub_key, username, password)
+	return ERROR_CALL_OBJECT
+
+func update_player(call_object: Object, call_function: String, player_id: String, access_token: String, player_info: Dictionary) -> String:
+	var req = self._players_api_init(call_object, call_function)
+	if req != null: return req.update_player(player_id, access_token, player_info)
+	return ERROR_CALL_OBJECT
+
+
+func get_player_data(call_object: Object, call_function: String, player_id: String) -> String:
+	var req = self._players_api_init(call_object, call_function)
+	if req != null: return req.get_player_data(player_id)
+	return ERROR_CALL_OBJECT
+
+func set_player_data(call_object: Object, call_function: String, player_id: String, access_token: String, player_data: Dictionary) -> String:
+	var req = self._players_api_init(call_object, call_function)
+	if req != null: return req.set_player_data(player_id, access_token, player_data)
 	return ERROR_CALL_OBJECT
 
 
