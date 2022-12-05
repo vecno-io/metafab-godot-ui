@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://demo/players/List.tscn" type="PackedScene" id=1]
+[ext_resource path="res://demo/players/Data.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/players/Update.tscn" type="PackedScene" id=3]
+[ext_resource path="res://demo/players/Auth.tscn" type="PackedScene" id=4]
+[ext_resource path="res://demo/players/Get.tscn" type="PackedScene" id=5]
+[ext_resource path="res://demo/players/Create.tscn" type="PackedScene" id=6]
+
+[node name="Players" type="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="Get" parent="." instance=ExtResource( 5 )]
+
+[node name="Auth" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Create" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Update" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="List Players" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Player Data" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0

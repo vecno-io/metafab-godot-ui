@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://demo/players/GetPlayer.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/ErrorBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/shared/PlayerResult.tscn" type="PackedScene" id=3]
+
+[node name="Get" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="MBox-Request" type="MarginContainer" parent="."]
+margin_right = 492.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="MBox-Request"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 476.0
+margin_bottom = 556.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Player Id"
+
+[node name="PlayerIdInput" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Spacer-v01" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 39.0
+margin_right = 120.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="SubmitButton" type="Button" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 460.0
+margin_bottom = 56.0
+size_flags_horizontal = 3
+text = "Submit"
+
+[node name="HSeparator" type="VSeparator" parent="."]
+margin_left = 496.0
+margin_right = 520.0
+margin_bottom = 564.0
+custom_constants/separation = 24
+
+[node name="MBox-Result" type="MarginContainer" parent="."]
+margin_left = 524.0
+margin_right = 1016.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+margin_right = 476.0
+margin_bottom = 556.0
+
+[node name="PlayerResult" parent="MBox-Result" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+visible = false
+margin_right = 476.0
+margin_bottom = 556.0

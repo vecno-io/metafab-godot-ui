@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://demo/players/CreatePlayer.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/ErrorBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/shared/PlayerResult.tscn" type="PackedScene" id=3]
+
+[node name="Create" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="MBox-Request" type="MarginContainer" parent="."]
+margin_right = 496.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="MBox-Request"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 480.0
+margin_bottom = 592.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Public Key"
+
+[node name="PublicKeyInput" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v03" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "Username"
+
+[node name="UsernameInput" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v04" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 77.0
+margin_right = 120.0
+margin_bottom = 91.0
+rect_min_size = Vector2( 120, 0 )
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 72.0
+margin_right = 464.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+secret = true
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Spacer-v01" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 111.0
+margin_right = 120.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="SubmitButton" type="Button" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 108.0
+margin_right = 464.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+text = "Submit"
+
+[node name="HSeparator" type="VSeparator" parent="."]
+margin_left = 500.0
+margin_right = 524.0
+margin_bottom = 600.0
+custom_constants/separation = 24
+
+[node name="MBox-Result" type="MarginContainer" parent="."]
+margin_left = 528.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[node name="PlayerResult" parent="MBox-Result" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+visible = false

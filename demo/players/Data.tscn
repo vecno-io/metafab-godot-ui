@@ -1,0 +1,436 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://demo/players/Dataset.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/ErrorBox.tscn" type="PackedScene" id=2]
+
+[node name="Player Data" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="MBox-Request" type="MarginContainer" parent="."]
+margin_right = 496.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MBox-Request"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 480.0
+margin_bottom = 592.0
+custom_constants/separation = 12
+
+[node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer"]
+margin_right = 464.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 120, 0 )
+text = "Public Data - (gear)"
+
+[node name="Grid-Public" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 26.0
+margin_right = 464.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/Grid-Public"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Name"
+
+[node name="NameInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Public"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/Grid-Public"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Volume"
+
+[node name="VolumeInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Public"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HSeparator2" type="HSeparator" parent="MBox-Request/VBoxContainer"]
+margin_top = 98.0
+margin_right = 464.0
+margin_bottom = 110.0
+custom_constants/separation = 12
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer"]
+margin_top = 122.0
+margin_right = 464.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 120, 0 )
+text = "Protected  Data - (stats)"
+
+[node name="Grid-Protected" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 148.0
+margin_right = 464.0
+margin_bottom = 208.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/Grid-Protected"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Wisdom"
+
+[node name="WisdomInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Protected"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/Grid-Protected"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Strength"
+
+[node name="StrengthInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Protected"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HSeparator3" type="HSeparator" parent="MBox-Request/VBoxContainer"]
+margin_top = 220.0
+margin_right = 464.0
+margin_bottom = 232.0
+custom_constants/separation = 12
+
+[node name="PlayerGetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 244.0
+margin_right = 464.0
+margin_bottom = 268.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/PlayerGetGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Player Id"
+
+[node name="PlayerId" type="LineEdit" parent="MBox-Request/VBoxContainer/PlayerGetGrid"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="PlayerSetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 280.0
+margin_right = 464.0
+margin_bottom = 336.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Player Token"
+
+[node name="PlayerToken" type="LineEdit" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Spacer-v01" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
+margin_top = 39.0
+margin_right = 120.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 56.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 154.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+
+[node name="PlayerSetButton" type="Button" parent="MBox-Request/VBoxContainer/PlayerSetGrid/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 178.0
+margin_right = 332.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Set Data"
+
+[node name="SecretSetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 348.0
+margin_right = 464.0
+margin_bottom = 404.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Secret Token"
+
+[node name="SecretToken" type="LineEdit" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Spacer-v01" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
+margin_top = 39.0
+margin_right = 120.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 56.0
+custom_constants/separation = 24
+
+[node name="Label" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid/HBoxContainer"]
+margin_top = 3.0
+margin_right = 154.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+
+[node name="SecretSetButton" type="Button" parent="MBox-Request/VBoxContainer/SecretSetGrid/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 178.0
+margin_right = 332.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Set Data"
+
+[node name="HSeparator4" type="HSeparator" parent="MBox-Request/VBoxContainer"]
+margin_top = 416.0
+margin_right = 464.0
+margin_bottom = 422.0
+custom_constants/separation = 6
+
+[node name="PlayerGetButton" type="Button" parent="MBox-Request/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 434.0
+margin_right = 464.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+text = "Get Data"
+
+[node name="HSeparator" type="VSeparator" parent="."]
+margin_left = 500.0
+margin_right = 524.0
+margin_bottom = 600.0
+custom_constants/separation = 24
+
+[node name="MBox-Result" type="MarginContainer" parent="."]
+margin_left = 528.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[node name="ResultBox" type="ScrollContainer" parent="MBox-Result"]
+unique_name_in_owner = true
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 480.0
+margin_bottom = 592.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MBox-Result/ResultBox"]
+margin_right = 464.0
+margin_bottom = 208.0
+size_flags_horizontal = 3
+custom_constants/separation = 12
+
+[node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer"]
+margin_right = 464.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 120, 0 )
+text = "Public Data - (gear)"
+
+[node name="Grid-Public" type="GridContainer" parent="MBox-Result/ResultBox/VBoxContainer"]
+margin_top = 26.0
+margin_right = 464.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Armor"
+
+[node name="NameField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Weapon"
+
+[node name="VolumeField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="HSeparator" type="HSeparator" parent="MBox-Result/ResultBox/VBoxContainer"]
+margin_top = 98.0
+margin_right = 464.0
+margin_bottom = 110.0
+custom_constants/separation = 12
+
+[node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer"]
+margin_top = 122.0
+margin_right = 464.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 120, 0 )
+text = "Protected  Data - (stats)"
+
+[node name="Grid-Protected" type="GridContainer" parent="MBox-Result/ResultBox/VBoxContainer"]
+margin_top = 148.0
+margin_right = 464.0
+margin_bottom = 208.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 12
+custom_constants/hseparation = 12
+columns = 2
+
+[node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Strength"
+
+[node name="WisdomField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_right = 464.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 120, 0 )
+text = "  Wisdom"
+
+[node name="StrengthField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
