@@ -485,14 +485,14 @@ func _transactions_api_init(call_object: Object, call_function: String) -> MetaF
 	Wallets API
 """
 
-func get_wallet_balances(call_object: Object, call_function: String) -> String:
+func get_wallet_balances(call_object: Object, call_function: String, wallet_id: String) -> String:
 	var req = self._wallets_api_init(call_object, call_function)
-	if req != null: return req.get_wallet_balances()
+	if req != null: return req.get_wallet_balances(wallet_id)
 	return ERROR_CALL_OBJECT
 
-func get_wallet_transactions(call_object: Object, call_function: String) -> String:
+func get_wallet_transactions(call_object: Object, call_function: String, wallet_id: String) -> String:
 	var req = self._wallets_api_init(call_object, call_function)
-	if req != null: return req.get_wallet_transactions()
+	if req != null: return req.get_wallet_transactions(wallet_id)
 	return ERROR_CALL_OBJECT
 
 
