@@ -463,9 +463,9 @@ func _shops_api_init(call_object: Object, call_function: String) -> MetaFabShops
 	Transactions API
 """
 
-func get_transaction(call_object: Object, call_function: String) -> String:
+func get_transaction(call_object: Object, call_function: String, transaction_id: String) -> String:
 	var req = self._transactions_api_init(call_object, call_function)
-	if req != null: return req.get_transaction()
+	if req != null: return req.get_transaction(transaction_id)
 	return ERROR_CALL_OBJECT
 
 
