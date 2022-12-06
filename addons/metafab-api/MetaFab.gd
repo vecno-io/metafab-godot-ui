@@ -2,9 +2,57 @@ extends Node
 
 const ERROR_CALL_OBJECT = "invalid call object or fuction"
 
-func _ready():
-	pass
 
+"""
+	Chain Info
+"""
+
+enum Chain {
+	Unknown,
+	Ethereum,     #ETHEREUM,
+	EthereumTest, #GOERLI,
+	Polygon,      #MATIC,
+	PolygonTest,  #MATICMUMBAI,
+	Arbitrum,     #ARBITRUM,
+	ArbitrumTest, #ARBITRUMGOERLI,
+}
+
+const KEY_ETHEREUM = "ETHEREUM"
+const KEY_GOERLI = "GOERLI"
+const KEY_MATIC = "MATIC"
+const KEY_MATICMUMBAI = "MATICMUMBAI"
+const KEY_ARBITRUM = "ARBITRUM"
+const KEY_ARBITRUMGOERLI = "ARBITRUMGOERLI"
+
+func get_chain_id(key: String):
+	match chain:
+		KEY_ETHEREUM: return Chain.Ethereum
+		KEY_GOERLI: return Chain.EthereumTest
+		KEY_MATIC: return Chain.Polygon
+		KEY_MATICMUMBAI: return Chain.PolygonTest
+		KEY_ARBITRUM: return Chain.Arbitrum
+		KEY_ARBITRUMGOERLI: return Chain.ArbitrumTest
+	return Chain.Unknown
+
+func get_chain_key(chain: int):
+	match chain:
+		Chain.Ethereum: return KEY_ETHEREUM
+		Chain.EthereumTest: return KEY_GOERLI
+		Chain.Polygon: return KEY_MATIC
+		Chain.PolygonTest: return KEY_MATICMUMBAI
+		Chain.Arbitrum: return KEY_ARBITRUM
+		Chain.ArbitrumTest: return KEY_ARBITRUMGOERLI
+	return "UNKNOWN"
+
+func get_chain_name(chain: int):
+	match chain:
+		Chain.Ethereum: return "Ethereum"
+		Chain.EthereumTest: return "Ethereum Goerli"
+		Chain.Polygon: return "Polygon"
+		Chain.PolygonTest: return "Polygon Mumbai"
+		Chain.Arbitrum: return "Arbitrum"
+		Chain.ArbitrumTest: return "Arbitrum Goerli"
+	return "unknown"
 
 
 """
