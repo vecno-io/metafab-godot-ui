@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://demo/AppDemo.gd" type="Script" id=1]
 [ext_resource path="res://demo/Games.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/Players.tscn" type="PackedScene" id=3]
+[ext_resource path="res://demo/Wallets.tscn" type="PackedScene" id=4]
 
 [node name="App" type="MarginContainer"]
 anchor_right = 1.0
@@ -23,3 +24,6 @@ tab_align = 0
 [node name="Games" parent="TabContainer" instance=ExtResource( 2 )]
 
 [node name="Players" parent="TabContainer" instance=ExtResource( 3 )]
+
+[node name="Wallets" parent="TabContainer" instance=ExtResource( 4 )]
+visible = false

@@ -31,8 +31,8 @@ margin_right = 476.0
 margin_bottom = 556.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v02" type="Label" parent="MBox-Request/GridContainer"]
@@ -44,7 +44,7 @@ text = "Player Id"
 
 [node name="PlayerIdInput" type="LineEdit" parent="MBox-Request/GridContainer"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 460.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -53,17 +53,17 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Spacer-v01" type="Label" parent="MBox-Request/GridContainer"]
-margin_top = 39.0
+margin_top = 35.0
 margin_right = 120.0
-margin_bottom = 53.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="SubmitButton" type="Button" parent="MBox-Request/GridContainer"]
 unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 460.0
-margin_bottom = 56.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 text = "Submit"
 

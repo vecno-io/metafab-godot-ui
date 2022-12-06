@@ -21,7 +21,10 @@ func auth_game(email: String, password: String) -> String:
 		"accept: application/json",
 		"authorization: Basic %s" % auth
 	]
-	var err = self.request("https://api.trymetafab.com/v1/games/auth", headers, true, HTTPClient.METHOD_GET)
+	var err = self.request(
+		"https://api.trymetafab.com/v1/games/auth", 
+		headers, true, HTTPClient.METHOD_GET
+	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 

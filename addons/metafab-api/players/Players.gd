@@ -34,7 +34,10 @@ func auth_player(game_pub_key: String, username: String, password: String) -> St
 		"X-Game-Key: %s" % game_pub_key,
 		"authorization: Basic %s" % auth
 	]
-	var err = self.request("https://api.trymetafab.com/v1/players/auth", headers, true, HTTPClient.METHOD_GET)
+	var err = self.request(
+		"https://api.trymetafab.com/v1/players/auth", 
+		headers, true, HTTPClient.METHOD_GET
+	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 

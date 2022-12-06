@@ -344,7 +344,7 @@ margin_top = 5.0
 margin_right = 120.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 120, 0 )
-text = "  Armor"
+text = "  Name"
 
 [node name="NameField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
@@ -362,7 +362,7 @@ margin_top = 41.0
 margin_right = 120.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 120, 0 )
-text = "  Weapon"
+text = "  Volume"
 
 [node name="VolumeField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
