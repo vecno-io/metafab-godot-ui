@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://demo/shared/TxnInfo.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/ErrorBox.tscn" type="PackedScene" id=2]
+
+[node name="TxnInfo" type="MarginContainer"]
+margin_top = 400.0
+margin_right = 460.0
+margin_bottom = 472.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_horizontal = 3
+custom_constants/margin_top = 8
+custom_constants/margin_bottom = 8
+script = ExtResource( 1 )
+
+[node name="ErrorBoxTxn" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
+margin_left = 0.0
+margin_right = 460.0
+margin_bottom = 64.0
+
+[node name="ResultBoxTxn" type="GridContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+margin_top = 8.0
+margin_right = 460.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v01" type="Label" parent="ResultBoxTxn"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Txn Id"
+
+[node name="TxnIdField" type="LineEdit" parent="ResultBoxTxn"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="ResultBoxTxn"]
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 120, 0 )
+text = "Txn  Hash"
+
+[node name="TxnHashField" type="LineEdit" parent="ResultBoxTxn"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
