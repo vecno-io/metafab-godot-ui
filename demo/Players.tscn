@@ -15,6 +15,7 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+custom_constants/side_margin = -1
 tab_align = 0
 
 [node name="Get" parent="." instance=ExtResource( 5 )]

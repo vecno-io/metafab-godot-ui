@@ -24,7 +24,7 @@ margin_left = 16.0
 margin_top = 8.0
 margin_right = 480.0
 margin_bottom = 592.0
-custom_constants/separation = 12
+custom_constants/separation = 16
 
 [node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer"]
 margin_right = 464.0
@@ -33,12 +33,12 @@ rect_min_size = Vector2( 120, 0 )
 text = "Public Data - (gear)"
 
 [node name="Grid-Public" type="GridContainer" parent="MBox-Request/VBoxContainer"]
-margin_top = 26.0
+margin_top = 30.0
 margin_right = 464.0
 margin_bottom = 86.0
 size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/Grid-Public"]
@@ -50,7 +50,7 @@ text = "  Name"
 
 [node name="NameInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -59,43 +59,43 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/Grid-Public"]
-margin_top = 41.0
+margin_top = 37.0
 margin_right = 120.0
-margin_bottom = 55.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 120, 0 )
 text = "  Volume"
 
 [node name="VolumeInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 60.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="HSeparator2" type="HSeparator" parent="MBox-Request/VBoxContainer"]
-margin_top = 98.0
+[node name="HSeparator" type="HSeparator" parent="MBox-Request/VBoxContainer"]
+margin_top = 102.0
 margin_right = 464.0
 margin_bottom = 110.0
-custom_constants/separation = 12
+custom_constants/separation = 8
 
 [node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer"]
-margin_top = 122.0
+margin_top = 126.0
 margin_right = 464.0
-margin_bottom = 136.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 120, 0 )
 text = "Protected  Data - (stats)"
 
 [node name="Grid-Protected" type="GridContainer" parent="MBox-Request/VBoxContainer"]
-margin_top = 148.0
+margin_top = 156.0
 margin_right = 464.0
-margin_bottom = 208.0
+margin_bottom = 212.0
 size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/Grid-Protected"]
@@ -107,7 +107,7 @@ text = "  Wisdom"
 
 [node name="WisdomInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Protected"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -116,49 +116,49 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/Grid-Protected"]
-margin_top = 41.0
+margin_top = 37.0
 margin_right = 120.0
-margin_bottom = 55.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 120, 0 )
 text = "  Strength"
 
 [node name="StrengthInput" type="LineEdit" parent="MBox-Request/VBoxContainer/Grid-Protected"]
 unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 60.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="HSeparator3" type="HSeparator" parent="MBox-Request/VBoxContainer"]
-margin_top = 220.0
+[node name="HSeparator2" type="HSeparator" parent="MBox-Request/VBoxContainer"]
+margin_top = 228.0
 margin_right = 464.0
-margin_bottom = 232.0
-custom_constants/separation = 12
+margin_bottom = 236.0
+custom_constants/separation = 8
 
-[node name="PlayerGetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
-margin_top = 244.0
+[node name="PlayerSetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 252.0
 margin_right = 464.0
-margin_bottom = 268.0
+margin_bottom = 336.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
-[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/PlayerGetGrid"]
+[node name="Label-v03" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
 margin_top = 5.0
 margin_right = 120.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 120, 0 )
 text = "Player Id"
 
-[node name="PlayerId" type="LineEdit" parent="MBox-Request/VBoxContainer/PlayerGetGrid"]
+[node name="PlayerId" type="LineEdit" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -166,68 +166,59 @@ size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="PlayerSetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
-margin_top = 280.0
-margin_right = 464.0
-margin_bottom = 336.0
-size_flags_horizontal = 5
-size_flags_vertical = 5
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
-columns = 2
-
 [node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
-margin_top = 5.0
+margin_top = 37.0
 margin_right = 120.0
-margin_bottom = 19.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 120, 0 )
 text = "Player Token"
 
 [node name="PlayerToken" type="LineEdit" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 24.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
 caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Spacer-v01" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
-margin_top = 39.0
+margin_top = 67.0
 margin_right = 120.0
-margin_bottom = 53.0
+margin_bottom = 81.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MBox-Request/VBoxContainer/PlayerSetGrid"]
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 64.0
 margin_right = 464.0
-margin_bottom = 56.0
+margin_bottom = 84.0
 custom_constants/separation = 24
 
 [node name="Label" type="Label" parent="MBox-Request/VBoxContainer/PlayerSetGrid/HBoxContainer2"]
 margin_top = 3.0
-margin_right = 154.0
+margin_right = 152.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 
 [node name="PlayerSetButton" type="Button" parent="MBox-Request/VBoxContainer/PlayerSetGrid/HBoxContainer2"]
 unique_name_in_owner = true
-margin_left = 178.0
-margin_right = 332.0
+margin_left = 176.0
+margin_right = 328.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Set Data"
 
 [node name="SecretSetGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
-margin_top = 348.0
+margin_top = 352.0
 margin_right = 464.0
 margin_bottom = 404.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
@@ -239,7 +230,7 @@ text = "Secret Token"
 
 [node name="SecretToken" type="LineEdit" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -248,43 +239,37 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Spacer-v01" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
-margin_top = 39.0
+margin_top = 35.0
 margin_right = 120.0
-margin_bottom = 53.0
+margin_bottom = 49.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MBox-Request/VBoxContainer/SecretSetGrid"]
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 56.0
+margin_bottom = 52.0
 custom_constants/separation = 24
 
 [node name="Label" type="Label" parent="MBox-Request/VBoxContainer/SecretSetGrid/HBoxContainer"]
 margin_top = 3.0
-margin_right = 154.0
+margin_right = 152.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 
 [node name="SecretSetButton" type="Button" parent="MBox-Request/VBoxContainer/SecretSetGrid/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 178.0
-margin_right = 332.0
+margin_left = 176.0
+margin_right = 328.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Set Data"
 
-[node name="HSeparator4" type="HSeparator" parent="MBox-Request/VBoxContainer"]
-margin_top = 416.0
-margin_right = 464.0
-margin_bottom = 422.0
-custom_constants/separation = 6
-
 [node name="PlayerGetButton" type="Button" parent="MBox-Request/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 434.0
+margin_top = 420.0
 margin_right = 464.0
-margin_bottom = 454.0
+margin_bottom = 440.0
 size_flags_horizontal = 3
 text = "Get Data"
 
@@ -320,9 +305,9 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MBox-Result/ResultBox"]
 margin_right = 464.0
-margin_bottom = 208.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
-custom_constants/separation = 12
+custom_constants/separation = 16
 
 [node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer"]
 margin_right = 464.0
@@ -331,12 +316,12 @@ rect_min_size = Vector2( 120, 0 )
 text = "Public Data - (gear)"
 
 [node name="Grid-Public" type="GridContainer" parent="MBox-Result/ResultBox/VBoxContainer"]
-margin_top = 26.0
+margin_top = 30.0
 margin_right = 464.0
 margin_bottom = 86.0
 size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
@@ -348,7 +333,7 @@ text = "  Name"
 
 [node name="NameField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -358,18 +343,18 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
-margin_top = 41.0
+margin_top = 37.0
 margin_right = 120.0
-margin_bottom = 55.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 120, 0 )
 text = "  Volume"
 
 [node name="VolumeField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Public"]
 unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 60.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
 editable = false
@@ -377,25 +362,25 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="HSeparator" type="HSeparator" parent="MBox-Result/ResultBox/VBoxContainer"]
-margin_top = 98.0
+margin_top = 102.0
 margin_right = 464.0
-margin_bottom = 110.0
+margin_bottom = 114.0
 custom_constants/separation = 12
 
 [node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer"]
-margin_top = 122.0
+margin_top = 130.0
 margin_right = 464.0
-margin_bottom = 136.0
+margin_bottom = 144.0
 rect_min_size = Vector2( 120, 0 )
 text = "Protected  Data - (stats)"
 
 [node name="Grid-Protected" type="GridContainer" parent="MBox-Result/ResultBox/VBoxContainer"]
-margin_top = 148.0
+margin_top = 160.0
 margin_right = 464.0
-margin_bottom = 208.0
+margin_bottom = 216.0
 size_flags_horizontal = 3
-custom_constants/vseparation = 12
-custom_constants/hseparation = 12
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
 columns = 2
 
 [node name="Label-v01" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
@@ -407,7 +392,7 @@ text = "  Strength"
 
 [node name="WisdomField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
 unique_name_in_owner = true
-margin_left = 132.0
+margin_left = 136.0
 margin_right = 464.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 160, 0 )
@@ -417,18 +402,18 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Label-v02" type="Label" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
-margin_top = 41.0
+margin_top = 37.0
 margin_right = 120.0
-margin_bottom = 55.0
+margin_bottom = 51.0
 rect_min_size = Vector2( 120, 0 )
 text = "  Wisdom"
 
 [node name="StrengthField" type="LineEdit" parent="MBox-Result/ResultBox/VBoxContainer/Grid-Protected"]
 unique_name_in_owner = true
-margin_left = 132.0
-margin_top = 36.0
+margin_left = 136.0
+margin_top = 32.0
 margin_right = 464.0
-margin_bottom = 60.0
+margin_bottom = 56.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
 editable = false
