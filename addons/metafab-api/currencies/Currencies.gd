@@ -5,42 +5,204 @@ extends MetaFabRequest
 const ERROR_NOT_IMPLEMENTED = "[currencies.%s] API Call not implemented"
 
 
-func get_currencies() -> String:
-	return ERROR_NOT_IMPLEMENTED % "get_currencies"
+func get_currencies(game_pub_key: String) -> String:
+	var headers = [
+		"accept: application/json",
+		"X-Game-Key: %s" % game_pub_key
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies", 
+		headers, true, HTTPClient.METHOD_GET
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func get_currency_balance() -> String:
-	return ERROR_NOT_IMPLEMENTED % "get_currency_balance"
+func get_currency_balance(currency_id: String, wallet: String, id: bool = true) -> String:
+	var headers = ["accept: application/json"]
+	var query: String
+	if id: query = "walletId"
+	else: query = "address"
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/balances?%s=%s" % [currency_id, query, wallet],
+		headers, true, HTTPClient.METHOD_GET
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func create_currency() -> String:
-	return ERROR_NOT_IMPLEMENTED % "create_currency"
+func create_currency(chain: String, name: String, symbol: String, supply_cap: String, secret_key: String, password: String) -> String:
+	var payload = to_json({
+		"chain": chain,
+		"name": name,
+		"symbol": symbol,
+		"supplyCap": supply_cap.to_int(),
+	})
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % password,
+		"X-Authorization: %s" % secret_key,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies",
+		headers, true, HTTPClient.METHOD_POST, payload
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
 
-func mint_currency() -> String:
-	return ERROR_NOT_IMPLEMENTED % "mint_currency"
+func mint_currency(currency_id: String, wallet: String, amount: float, secret_key: String, password: String, id: bool = true) -> String:
+	var data = {}
+	data["amount"] = amount
+	if id: data["walletId"] = wallet
+	else: data["address"] = wallet
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % password,
+		"X-Authorization: %s" % secret_key,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/mints" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, to_json(data)
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func burn_currency() -> String:
-	return ERROR_NOT_IMPLEMENTED % "burn_currency"
+func burn_currency(currency_id: String, amount: float, access_key: String, password: String) -> String:
+	var payload = to_json({
+		"amount": amount,
+	})
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % password,
+		"X-Authorization: %s" % access_key,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/burns" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, payload
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
 
-func get_currency_fees() -> String:
-	return ERROR_NOT_IMPLEMENTED % "get_currency_fees"
+func get_currency_fees(currency_id: String) -> String:
+	var headers = [
+		"accept: application/json",
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/fees" % currency_id, 
+		headers, true, HTTPClient.METHOD_GET
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func set_currency_fees() -> String:
-	return ERROR_NOT_IMPLEMENTED % "set_currency_fees"
+func set_currency_fees(currency_id: String, recipient: String, cap_ammount: float, fixed_amount: float, basis_points: int, secret_key: String, password: String) -> String:
+	var payload = to_json({
+		"recipientAddress": recipient,
+		"capAmount": cap_ammount,
+		"fixedAmount": fixed_amount,
+		"basisPoints": basis_points
+	})
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % password,
+		"X-Authorization: %s" % secret_key,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/fees" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, payload
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
 
-func get_currency_role() -> String:
-	return ERROR_NOT_IMPLEMENTED % "get_currency_role"
+func get_currency_role(currency_id: String, role: String, wallet: String, id: bool = true) -> String:
+	var query = ""
+	if id: query = "walletId=%s" % wallet
+	else: query = "address=%s" % wallet
+	var headers = [
+		"accept: application/json",
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/roles?role=%s&%s" % [currency_id, role, query], 
+		headers, true, HTTPClient.METHOD_GET
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func grant_currency_role() -> String:
-	return ERROR_NOT_IMPLEMENTED % "grant_currency_role"
+func grant_currency_role(currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+	var data = {}
+	data["role"] = role
+	if id: data["walletId"] = wallet
+	else: data["address"] = wallet
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/roles" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, to_json(data)
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func revoke_currency_role() -> String:
-	return ERROR_NOT_IMPLEMENTED % "revoke_currency_role"
+func revoke_currency_role(currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+	var data = {}
+	data["role"] = role
+	if id: data["walletId"] = wallet
+	else: data["address"] = wallet
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/roles" % currency_id,
+		headers, true, HTTPClient.METHOD_DELETE, to_json(data)
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
 
-func transfer_currency() -> String:
-	return ERROR_NOT_IMPLEMENTED % "transfer_currency"
+func transfer_currency(currency_id: String, account_token: String, account_password: String, recipient: String, reference: int, amount: float, id: bool = true) -> String:
+	var data = {}
+	data["amount"] = amount
+	data["reference"] = reference
+	if id: data["walletId"] = recipient
+	else: data["address"] = recipient
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/transfers" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, to_json(data)
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
 
-func batch_transfer_currency() -> String:
-	return ERROR_NOT_IMPLEMENTED % "batch_transfer_currency"
+func batch_transfer_currency(currency_id: String, account_token: String, account_password: String, recipients: Array, references: Array, amounts: Array, id: bool = true) -> String:
+	var data = {}
+	data["amounts"] = amounts
+	data["references"] = references
+	if id: data["walletIds"] = recipients
+	else: data["addresses"] = recipients
+	var headers = [
+		"accept: application/json",
+		"content-type: application/json",
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
+	]
+	var err = self.request(
+		"https://api.trymetafab.com/v1/currencies/%s/batchTransfers" % currency_id,
+		headers, true, HTTPClient.METHOD_POST, to_json(data)
+	)
+	if err != OK:  return MetaFabRequest.get_error(err) % name
+	else: return MetaFabRequest.Ok
