@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://demo/currencies/Fees.tscn" type="PackedScene" id=2]
+[ext_resource path="res://demo/currencies/Transfers.tscn" type="PackedScene" id=3]
+[ext_resource path="res://demo/currencies/Get.tscn" type="PackedScene" id=4]
+[ext_resource path="res://demo/currencies/Create.tscn" type="PackedScene" id=5]
+
+[node name="Currencies" type="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/side_margin = -1
+tab_align = 0
+
+[node name="Get" parent="." instance=ExtResource( 4 )]
+
+[node name="Fees" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Create" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Transfer" parent="." instance=ExtResource( 3 )]
+visible = false
