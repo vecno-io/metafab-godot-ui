@@ -29,7 +29,7 @@ func _on_get_fees_pressed():
 	print("[%s] _on_get_fees_pressed: %s" % [name, id_input.text])
 	var res = MetaFab.get_currency_fees(self, "_on_get_fees_result", id_input.text)
 	if res == MetaFabRequest.Ok: self._clear_fees()
-	else: error_box.show_data(-1, name, res)
+	else: error_box.show_error(name, -1, res)
 
 func _on_get_fees_result(code: int, result: String):
 	var json = JSON.parse(result)
@@ -44,7 +44,7 @@ func _on_set_fees_pressed():
 		secretkey_input.text, password_input.text
 	)
 	if res == MetaFabRequest.Ok: self._clear_fees()
-	else: error_box.show_data(-1, name, res)
+	else: error_box.show_error(name, -1, res)
 
 func _on_set_fees_result(code: int, result: String):
 	var json = JSON.parse(result)

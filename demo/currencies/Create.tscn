@@ -125,7 +125,7 @@ margin_top = 161.0
 margin_right = 120.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 120, 0 )
-text = "Main Password"
+text = "Game Password"
 
 [node name="PasswordInput" type="LineEdit" parent="MBox-Request/CurrencyGrid"]
 unique_name_in_owner = true

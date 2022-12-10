@@ -96,7 +96,7 @@ func _on_get_currencies_pressed():
 	print("[%s] _on_get_currencies_pressed: %s" % [name, publickey_input.text])
 	var res = MetaFab.get_currencies(self, "_on_get_currencies_result", publickey_input.text)
 	if res == MetaFabRequest.Ok: self._clear_list_currency()
-	else: error_box.show_data(-1, name, res)
+	else: error_box.show_error(name, -1, res)
 
 func _on_get_currencies_result(code: int, result: String):
 	var json = JSON.parse(result)

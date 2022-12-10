@@ -14,7 +14,7 @@ func _on_submit_pressed():
 	print("[%s] _on_submit_pressed: %s" % [name, gameid_input.text])
 	var res = MetaFab.get_game(self, "_on_request_result", gameid_input.text)
 	if res == MetaFabRequest.Ok: self._clear()
-	else: error_box.show_data(-1, name, res)
+	else: error_box.show_error(name, -1, res)
 
 func _on_request_result(code: int, result: String):
 	var json = JSON.parse(result)
