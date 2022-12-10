@@ -15,7 +15,7 @@ func _ready():
 func _on_request_completed(result: int, response_code: int, headers:  PoolStringArray, body: PoolByteArray):
 	self.call_object.call(call_function, response_code, body.get_string_from_utf8())
 	self.disconnect("request_completed", self, "_on_request_completed")
-	# TODO Handle errors before returning result
+	# Note: Unhandle result codes, server offline and so on
 	self.queue_free()
 
 

@@ -108,20 +108,20 @@ func get_currency_balance(call_object: Object, call_function: String, currency_i
 	if req != null: return req.get_currency_balance(currency_id, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func create_currency(call_object: Object, call_function: String, chain: int, name: String, symbol: String, supply_cap: String, secret_key: String, password: String) -> String:
+func create_currency(call_object: Object, call_function: String, secret_key: String, secret_password: String, chain: int, name: String, symbol: String, supply_cap: String) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.create_currency(get_chain_key(chain), name, symbol, supply_cap, secret_key, password)
+	if req != null: return req.create_currency(secret_key, secret_password, get_chain_key(chain), name, symbol, supply_cap)
 	return ERROR_CALL_OBJECT
 
 
-func mint_currency(call_object: Object, call_function: String, currency_id: String, wallet: String, amount: float, secret_key: String, password: String, id: bool = true) -> String:
+func mint_currency(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, wallet: String, amount: float, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.mint_currency(currency_id, wallet, amount, secret_key, password, id)
+	if req != null: return req.mint_currency(account_token, account_password, currency_id, wallet, amount, id)
 	return ERROR_CALL_OBJECT
 
-func burn_currency(call_object: Object, call_function: String, currency_id: String, amount: float, access_key: String, password: String) -> String:
+func burn_currency(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, amount: float) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.burn_currency(currency_id, amount, access_key, password)
+	if req != null: return req.burn_currency(account_token, account_password, currency_id, amount)
 	return ERROR_CALL_OBJECT
 
 
@@ -130,36 +130,36 @@ func get_currency_fees(call_object: Object, call_function: String, currency_id: 
 	if req != null: return req.get_currency_fees(currency_id)
 	return ERROR_CALL_OBJECT
 
-func set_currency_fees(call_object: Object, call_function: String, currency_id: String, recipient: String, cap_ammount: float, fixed_amount: float, basis_points: int, secret_key: String, password: String) -> String:
+func set_currency_fees(call_object: Object, call_function: String, secret_key: String, secret_password: String, currency_id: String, recipient: String, cap_ammount: float, fixed_amount: float, basis_points: int) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.set_currency_fees(currency_id, recipient, cap_ammount, fixed_amount, basis_points, secret_key, password)
+	if req != null: return req.set_currency_fees(secret_key, secret_password, currency_id, recipient, cap_ammount, fixed_amount, basis_points)
 	return ERROR_CALL_OBJECT
 
 
 func get_currency_role(call_object: Object, call_function: String, currency_id: String, wallet: String, role: String, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.get_currency_role()
+	if req != null: return req.get_currency_role(currency_id, wallet, role, id)
 	return ERROR_CALL_OBJECT
 
-func grant_currency_role(call_object: Object, call_function: String, currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+func grant_currency_role(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, wallet: String, role: String, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.grant_currency_role()
+	if req != null: return req.grant_currency_role(account_token, account_password, currency_id, wallet, role, id)
 	return ERROR_CALL_OBJECT
 
-func revoke_currency_role(call_object: Object, call_function: String, currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+func revoke_currency_role(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, wallet: String, role: String, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.revoke_currency_role()
+	if req != null: return req.revoke_currency_role(account_token, account_password, currency_id, wallet, role, id)
 	return ERROR_CALL_OBJECT
 
 
-func transfer_currency(call_object: Object, call_function: String, currency_id: String, account_token: String, account_password: String, recipient: String, reference: int, amount: float, id: bool = true) -> String:
+func transfer_currency(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, recipient: String, reference: int, amount: float, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.transfer_currency(currency_id, account_token, account_password, recipient, reference, amount, id)
+	if req != null: return req.transfer_currency(account_token, account_password, currency_id, recipient, reference, amount, id)
 	return ERROR_CALL_OBJECT
 
-func batch_transfer_currency(call_object: Object, call_function: String, currency_id: String, account_token: String, account_password: String, recipients: Array, references: Array, amounts: Array, id: bool = true) -> String:
+func batch_transfer_currency(call_object: Object, call_function: String, account_token: String, account_password: String, currency_id: String, recipients: Array, references: Array, amounts: Array, id: bool = true) -> String:
 	var req = self._currencies_api_init(call_object, call_function)
-	if req != null: return req.batch_transfer_currency(currency_id, account_token, account_password, recipients, references, amounts, id)
+	if req != null: return req.batch_transfer_currency(account_token, account_password, currency_id, recipients, references, amounts, id)
 	return ERROR_CALL_OBJECT
 
 

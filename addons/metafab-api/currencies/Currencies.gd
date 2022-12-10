@@ -29,7 +29,7 @@ func get_currency_balance(currency_id: String, wallet: String, id: bool = true) 
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func create_currency(chain: String, name: String, symbol: String, supply_cap: String, secret_key: String, password: String) -> String:
+func create_currency(secret_key: String, secret_password: String, chain: String, name: String, symbol: String, supply_cap: String) -> String:
 	var payload = to_json({
 		"chain": chain,
 		"name": name,
@@ -39,7 +39,7 @@ func create_currency(chain: String, name: String, symbol: String, supply_cap: St
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
-		"X-Password: %s" % password,
+		"X-Password: %s" % secret_password,
 		"X-Authorization: %s" % secret_key,
 	]
 	var err = self.request(
@@ -50,7 +50,7 @@ func create_currency(chain: String, name: String, symbol: String, supply_cap: St
 	else: return MetaFabRequest.Ok
 
 
-func mint_currency(currency_id: String, wallet: String, amount: float, secret_key: String, password: String, id: bool = true) -> String:
+func mint_currency(account_token: String, account_password: String, currency_id: String, wallet: String, amount: float, id: bool = true) -> String:
 	var data = {}
 	data["amount"] = amount
 	if id: data["walletId"] = wallet
@@ -58,8 +58,8 @@ func mint_currency(currency_id: String, wallet: String, amount: float, secret_ke
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
-		"X-Password: %s" % password,
-		"X-Authorization: %s" % secret_key,
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/currencies/%s/mints" % currency_id,
@@ -68,15 +68,15 @@ func mint_currency(currency_id: String, wallet: String, amount: float, secret_ke
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func burn_currency(currency_id: String, amount: float, access_key: String, password: String) -> String:
+func burn_currency(account_token: String, account_password: String, currency_id: String, amount: float) -> String:
 	var payload = to_json({
 		"amount": amount,
 	})
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
-		"X-Password: %s" % password,
-		"X-Authorization: %s" % access_key,
+		"X-Password: %s" % account_password,
+		"X-Authorization: %s" % account_token,
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/currencies/%s/burns" % currency_id,
@@ -97,7 +97,7 @@ func get_currency_fees(currency_id: String) -> String:
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func set_currency_fees(currency_id: String, recipient: String, cap_ammount: float, fixed_amount: float, basis_points: int, secret_key: String, password: String) -> String:
+func set_currency_fees(secret_key: String, secret_password: String, currency_id: String, recipient: String, cap_ammount: float, fixed_amount: float, basis_points: int) -> String:
 	var payload = to_json({
 		"recipientAddress": recipient,
 		"capAmount": cap_ammount,
@@ -107,7 +107,7 @@ func set_currency_fees(currency_id: String, recipient: String, cap_ammount: floa
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
-		"X-Password: %s" % password,
+		"X-Password: %s" % secret_password,
 		"X-Authorization: %s" % secret_key,
 	]
 	var err = self.request(
@@ -132,7 +132,7 @@ func get_currency_role(currency_id: String, role: String, wallet: String, id: bo
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func grant_currency_role(currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+func grant_currency_role(account_token: String, account_password: String, currency_id: String, wallet: String, role: String, id: bool = true) -> String:
 	var data = {}
 	data["role"] = role
 	if id: data["walletId"] = wallet
@@ -150,7 +150,7 @@ func grant_currency_role(currency_id: String, account_token: String, account_pas
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func revoke_currency_role(currency_id: String, account_token: String, account_password: String, wallet: String, role: String, id: bool = true) -> String:
+func revoke_currency_role(account_token: String, account_password: String, currency_id: String, wallet: String, role: String, id: bool = true) -> String:
 	var data = {}
 	data["role"] = role
 	if id: data["walletId"] = wallet
@@ -169,7 +169,7 @@ func revoke_currency_role(currency_id: String, account_token: String, account_pa
 	else: return MetaFabRequest.Ok
 
 
-func transfer_currency(currency_id: String, account_token: String, account_password: String, recipient: String, reference: int, amount: float, id: bool = true) -> String:
+func transfer_currency(account_token: String, account_password: String, currency_id: String, recipient: String, reference: int, amount: float, id: bool = true) -> String:
 	var data = {}
 	data["amount"] = amount
 	data["reference"] = reference
@@ -188,7 +188,7 @@ func transfer_currency(currency_id: String, account_token: String, account_passw
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func batch_transfer_currency(currency_id: String, account_token: String, account_password: String, recipients: Array, references: Array, amounts: Array, id: bool = true) -> String:
+func batch_transfer_currency(account_token: String, currency_id: String, account_password: String, recipients: Array, references: Array, amounts: Array, id: bool = true) -> String:
 	var data = {}
 	data["amounts"] = amounts
 	data["references"] = references
