@@ -217,113 +217,120 @@ func _games_api_init(call_object: Object, call_function: String) -> MetaFabGames
 	Items API
 """
 
-func get_collections(call_object: Object, call_function: String) -> String:
+func get_collections(call_object: Object, call_function: String, public_key: String) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collections()
+	if req != null: return req.get_collections(public_key)
 	return ERROR_CALL_OBJECT
 
-func get_collection_item(call_object: Object, call_function: String) -> String:
+func get_collection_item(call_object: Object, call_function: String, collection_id: String, item_id: int) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item()
+	if req != null: return req.get_collection_item(collection_id, item_id)
 	return ERROR_CALL_OBJECT
 
-func get_collection_items(call_object: Object, call_function: String) -> String:
+func get_collection_items(call_object: Object, call_function: String, collection_id: String) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_items()
-	return ERROR_CALL_OBJECT
-
-
-func create_collections(call_object: Object, call_function: String) -> String:
-	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.create_collections()
-	return ERROR_CALL_OBJECT
-
-func create_collection_item(call_object: Object, call_function: String) -> String:
-	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.create_collection_item()
+	if req != null: return req.get_collection_items(collection_id)
 	return ERROR_CALL_OBJECT
 
 
-func get_collection_item_supply(call_object: Object, call_function: String) -> String:
+func create_collection(call_object: Object, call_function: String, secret_key: String, password: String, chain: int) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item_supply()
+	if req != null: return req.create_collection(secret_key, password, get_chain_key(chain))
 	return ERROR_CALL_OBJECT
 
-func get_collection_item_supplies(call_object: Object, call_function: String) -> String:
+func create_collection_item(
+	call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, 
+	name: String, descr: String, image_url: String, image_data: String, extrern_url: String, data: Dictionary, attribs: Array
+) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item_supplies()
-	return ERROR_CALL_OBJECT
-
-func get_collection_item_balance(call_object: Object, call_function: String) -> String:
-	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item_balance()
-	return ERROR_CALL_OBJECT
-
-func get_collection_item_balances(call_object: Object, call_function: String) -> String:
-	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item_balances()
+	if req != null: return req.create_collection_item(
+		account_token, account_password, collection_id, item_id, 
+		name, descr, image_url, image_data, extrern_url, data, attribs
+	)
 	return ERROR_CALL_OBJECT
 
 
-func get_collection_role(call_object: Object, call_function: String) -> String:
+func get_collection_item_supply(call_object: Object, call_function: String, collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_role()
+	if req != null: return req.get_collection_item_supply(collection_id, item_id, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func grant_collection_role(call_object: Object, call_function: String) -> String:
+func get_collection_item_balance(call_object: Object, call_function: String, collection_id: String, item_id: int, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.grant_collection_role()
+	if req != null: return req.get_collection_item_balance(collection_id, item_id, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func revoke_collection_role(call_object: Object, call_function: String) -> String:
+func get_collection_item_supplies(call_object: Object, call_function: String, collection_id: String) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.revoke_collection_role()
+	if req != null: return req.get_collection_item_supplies(collection_id)
 	return ERROR_CALL_OBJECT
 
-func get_collection_approval(call_object: Object, call_function: String) -> String:
+func get_collection_item_balances(call_object: Object, call_function: String, collection_id: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_approval()
-	return ERROR_CALL_OBJECT
-
-func set_collection_approval(call_object: Object, call_function: String) -> String:
-	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.set_collection_approval()
+	if req != null: return req.get_collection_item_balances(collection_id, wallet, id)
 	return ERROR_CALL_OBJECT
 
 
-func burn_collection_item(call_object: Object, call_function: String) -> String:
+func get_collection_role(call_object: Object, call_function: String, collection_id: String, role: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.burn_collection_item()
+	if req != null: return req.get_collection_role(collection_id, role, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func mint_collection_item(call_object: Object, call_function: String) -> String:
+func grant_collection_role(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, role: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.mint_collection_item()
+	if req != null: return req.grant_collection_role(account_token, account_password, collection_id, role, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func batch_mint_collection_items(call_object: Object, call_function: String) -> String:
+func revoke_collection_role(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, role: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.batch_mint_collection_items()
+	if req != null: return req.revoke_collection_role(account_token, account_password, collection_id, role, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func transfer_collection_item(call_object: Object, call_function: String) -> String:
+
+func get_collection_approval(call_object: Object, call_function: String, collection_id: String, opperator: String, wallet: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.transfer_collection_item()
+	if req != null: return req.get_collection_approval(collection_id, opperator, wallet, id)
 	return ERROR_CALL_OBJECT
 
-func batch_transfer_collection_items(call_object: Object, call_function: String) -> String:
+func set_collection_approval(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, opperator: String, approved: bool) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.batch_transfer_collection_items()
+	if req != null: return req.set_collection_approval(account_token, account_password, collection_id, opperator, approved)
 	return ERROR_CALL_OBJECT
 
-func get_collection_item_timelock(call_object: Object, call_function: String) -> String:
+
+func burn_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.get_collection_item_timelock()
+	if req != null: return req.burn_collection_item(account_token, account_password, collection_id, item_id, amount)
 	return ERROR_CALL_OBJECT
 
-func set_collection_item_timelock(call_object: Object, call_function: String) -> String:
+func mint_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
 	var req = self._items_api_init(call_object, call_function)
-	if req != null: return req.set_collection_item_timelock()
+	if req != null: return req.mint_collection_item(account_token, account_password, collection_id, item_id, amount, reciever, id)
+	return ERROR_CALL_OBJECT
+
+func batch_mint_collection_items(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_ids: Array, amounts: Array, reciever: String, id: bool = true) -> String:
+	var req = self._items_api_init(call_object, call_function)
+	if req != null: return req.batch_mint_collection_items(account_token, account_password, collection_id, item_ids, amounts, reciever, id)
+	return ERROR_CALL_OBJECT
+
+func transfer_collection_item(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, amount: int, reciever: String, id: bool = true) -> String:
+	var req = self._items_api_init(call_object, call_function)
+	if req != null: return req.transfer_collection_item(account_token, account_password, collection_id, item_id, amount, reciever, id)
+	return ERROR_CALL_OBJECT
+
+func batch_transfer_collection_items(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_ids: Array, amounts: Array, recievers: Array, id: bool = true) -> String:
+	var req = self._items_api_init(call_object, call_function)
+	if req != null: return req.batch_transfer_collection_items(account_token, account_password, collection_id, item_ids, amounts, recievers, id)
+	return ERROR_CALL_OBJECT
+
+func get_collection_item_timelock(call_object: Object, call_function: String, collection_id: String, item_id: int) -> String:
+	var req = self._items_api_init(call_object, call_function)
+	if req != null: return req.get_collection_item_timelock(collection_id, item_id)
+	return ERROR_CALL_OBJECT
+
+func set_collection_item_timelock(call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_ids: int, timelock: int) -> String:
+	var req = self._items_api_init(call_object, call_function)
+	if req != null: return req.set_collection_item_timelock(account_token, account_password, collection_id, item_ids, timelock)
 	return ERROR_CALL_OBJECT
 
 
