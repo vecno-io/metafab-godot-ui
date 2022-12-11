@@ -350,41 +350,51 @@ func _items_api_init(call_object: Object, call_function: String) -> MetaFabItems
 	Lootboxes API
 """
 
-func get_lootbox_managers(call_object: Object, call_function: String) -> String:
+func get_lootbox_managers(call_object: Object, call_function: String, game_pub_key: String) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.get_lootbox_managers()
+	if req != null: return req.get_lootbox_managers(game_pub_key)
 	return ERROR_CALL_OBJECT
 
-func get_lootbox_manager_lootboxes(call_object: Object, call_function: String) -> String:
+func get_lootbox_manager_lootboxes(call_object: Object, call_function: String, manager_id: String) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.get_lootbox_manager_lootboxes()
+	if req != null: return req.get_lootbox_manager_lootboxes(manager_id)
 	return ERROR_CALL_OBJECT
 	
 
-func create_lootbox_manager(call_object: Object, call_function: String) -> String:
+func create_lootbox_manager(call_object: Object, call_function: String, secret_key: String, secret_password: String, chain: int) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.create_lootbox_manager()
+	if req != null: return req.create_lootbox_manager(secret_key, secret_password, get_chain_key(chain))
 	return ERROR_CALL_OBJECT
 	
-func get_lootbox_manager_lootbox(call_object: Object, call_function: String) -> String:
+func get_lootbox_manager_lootbox(call_object: Object, call_function: String, manager_id: String, lootbox_id: String) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.get_lootbox_manager_lootbox()
+	if req != null: return req.get_lootbox_manager_lootbox(manager_id, lootbox_id)
 	return ERROR_CALL_OBJECT
 
-func set_lootbox_manager_lootbox(call_object: Object, call_function: String) -> String:
+func set_lootbox_manager_lootbox(
+	call_object: Object, call_function: String, secret_key: String, secret_password: String, manager_id: String, 
+	lootbox_id: int, input_collection: String, output_collection: String, input_ids: Array, output_ids: Array,
+	input_amounts: Array, output_amounts: Array, output_weights: Array, output_total: Array, 
+	is_input_id: bool = true, is_output_id: bool = true
+) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.set_lootbox_manager_lootbox()
+	if req != null: return req.set_lootbox_manager_lootbox(
+		secret_key, secret_password, manager_id, lootbox_id,
+		input_collection, output_collection, input_ids, output_ids,
+		input_amounts, output_amounts, output_weights, output_total, 
+		is_input_id, is_output_id
+	)
 	return ERROR_CALL_OBJECT
 
-func remove_lootbox_manager_lootbox(call_object: Object, call_function: String) -> String:
+func remove_lootbox_manager_lootbox(call_object: Object, call_function: String, secret_key: String, secret_password: String, manager_id: String, lootbox_id: String) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.remove_lootbox_manager_lootbox()
+	if req != null: return req.remove_lootbox_manager_lootbox(secret_key, secret_password, manager_id, lootbox_id)
 	return ERROR_CALL_OBJECT
 
 	
-func open_lootbox_manager_lootbox(call_object: Object, call_function: String) -> String:
+func open_lootbox_manager_lootbox(call_object: Object, call_function: String, account_token: String, account_password: String, manager_id: String, lootbox_id: String) -> String:
 	var req = self._lootboxes_api_init(call_object, call_function)
-	if req != null: return req.open_lootbox_manager_lootbox()
+	if req != null: return req.open_lootbox_manager_lootbox(account_token, account_password, manager_id, lootbox_id)
 	return ERROR_CALL_OBJECT
 
 
