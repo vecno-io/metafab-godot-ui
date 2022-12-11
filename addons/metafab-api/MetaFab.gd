@@ -59,26 +59,26 @@ func get_chain_name(chain: int):
 	Contracts API
 """
 
-func get_contracts(call_object: Object, call_function: String) -> String:
+func get_contracts(call_object: Object, call_function: String, game_pub_key: String) -> String:
 	var req = self._contracts_api_init(call_object, call_function)
-	if req != null: return req.get_contracts()
+	if req != null: return req.get_contracts(game_pub_key)
 	return ERROR_CALL_OBJECT
 
 
-func create_custom_contract(call_object: Object, call_function: String) -> String:
+func create_custom_contract(call_object: Object, call_function: String, secret_key: String, chain: int, address: Sting, forwarder: Sting, abi: Sting) -> String:
 	var req = self._contracts_api_init(call_object, call_function)
-	if req != null: return req.create_custom_contract()
+	if req != null: return req.create_custom_contract(secret_key, get_chain_key(chain), address, forwarder, abi)
 	return ERROR_CALL_OBJECT
 
 
-func read_contract_data(call_object: Object, call_function: String) -> String:
+func read_contract_data(call_object: Object, call_function: String, contract_id: String, function: String, arguments: String) -> String:
 	var req = self._contracts_api_init(call_object, call_function)
-	if req != null: return req.read_contract_data()
+	if req != null: return req.read_contract_data(contract_id, function, arguments)
 	return ERROR_CALL_OBJECT
 
-func write_contract_data(call_object: Object, call_function: String) -> String:
+func write_contract_data(call_object: Object, call_function: String, account_token: String, account_password: String, contract_id: String, function: String, arguments: String) -> String:
 	var req = self._contracts_api_init(call_object, call_function)
-	if req != null: return req.write_contract_data()
+	if req != null: return req.write_contract_data(account_token, account_password, contract_id, function, arguments)
 	return ERROR_CALL_OBJECT
 
 
