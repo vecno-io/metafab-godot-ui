@@ -39,9 +39,9 @@ func _on_get_fees_result(code: int, result: String):
 
 func _on_set_fees_pressed():
 	print("[%s] _on_set_fees_pressed: %s" % [name, id_input.text])
-	var res = MetaFab.set_currency_fees(self, "_on_set_fees_result", id_input.text, recipient_input.text, 
-		amount_cap_input.text.to_float(), fixed_amount_input.text.to_float(), basis_points_input.text.to_int(), 
-		secretkey_input.text, password_input.text
+	var res = MetaFab.set_currency_fees(
+		self, "_on_set_fees_result", secretkey_input.text, password_input.text, id_input.text, recipient_input.text, 
+		amount_cap_input.text.to_float(), fixed_amount_input.text.to_float(), basis_points_input.text.to_int()
 	)
 	if res == MetaFabRequest.Ok: self._clear_fees()
 	else: error_box.show_error(name, -1, res)

@@ -41,8 +41,9 @@ func _ready():
 
 func _on_burn_currency_pressed():
 	print("[%s] _on_burn_currency_pressed: %s" % [name, wallet_input.text])
-	var res = MetaFab.burn_currency(self, "_on_burn_currency_result", currency_input.text,
-		burn_amount_input.text.to_float(), burn_key_input.text, burn_password_input.text
+	var res = MetaFab.burn_currency(self, "_on_burn_currency_result", 
+		burn_key_input.text, burn_password_input.text, 
+		currency_input.text, burn_amount_input.text.to_float()
 	)
 	if res == MetaFabRequest.Ok: 
 		txn_info.clear()
@@ -61,9 +62,9 @@ func _on_burn_currency_result(code: int, result: String):
 
 func _on_mint_currency_pressed():
 	print("[%s] _on_mint_currency_pressed: %s" % [name, wallet_input.text])
-	var res = MetaFab.mint_currency(self, "_on_mint_currency_result", 
-		currency_input.text, wallet_input.text, amount_input.text.to_float(),
-		secretkey_input.text, password_input.text, true
+	var res = MetaFab.mint_currency(
+		self, "_on_mint_currency_result", secretkey_input.text, password_input.text, 
+		currency_input.text, wallet_input.text, amount_input.text.to_float(), true
 	)
 	if res == MetaFabRequest.Ok: 
 		txn_info.clear()

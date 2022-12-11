@@ -24,9 +24,8 @@ func _ready():
 func _on_submit_pressed():
 	print("[%s] _on_submit_pressed: %s" % [name, name_input.text])
 	var res = MetaFab.create_currency(
-		self, "_on_request_result", 
-		chain_select.chain, name_input.text, symbol_input.text, 
-		supplycap_input.text, secretkey_input.text, password_input.text
+		self, "_on_request_result", secretkey_input.text, password_input.text, 
+		chain_select.chain, name_input.text, symbol_input.text, supplycap_input.text
 	)
 	if res == MetaFabRequest.Ok: self._clear()
 	else: self._show_error(-1, res)

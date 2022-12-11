@@ -43,9 +43,9 @@ func _on_batch_pressed():
 		wallets.append(wallet_input_c.text)
 		amounts.append(amount_input_c.text.to_float())
 		references.append(reference_input_c.text.to_int())
-	var res = MetaFab.batch_transfer_currency(self, "_on_transfer_result", 
-		currency_input.text, token_input.text, password_input.text,
-		wallets, references, amounts
+	var res = MetaFab.batch_transfer_currency(
+		self, "_on_transfer_result", token_input.text, password_input.text,
+		currency_input.text, wallets, references, amounts
 	)
 	if res == MetaFabRequest.Ok: txn_info.clear()
 	else: txn_info.show_error(-1, name, res)
@@ -53,7 +53,7 @@ func _on_batch_pressed():
 func _on_transfer_pressed():
 	print("[%s] _on_transfer_pressed: %s" % [name, currency_input.text])
 	var res = MetaFab.transfer_currency(self, "_on_transfer_result", 
-		currency_input.text, token_input.text, password_input.text,
+		token_input.text, password_input.text, currency_input.text,
 		wallet_input_a.text, reference_input_a.text.to_int(), 
 		amount_input_a.text.to_float()
 	)
