@@ -240,12 +240,12 @@ func create_collection(call_object: Object, call_function: String, secret_key: S
 
 func create_collection_item(
 	call_object: Object, call_function: String, account_token: String, account_password: String, collection_id: String, item_id: int, 
-	name: String, descr: String, image_url: String, image_data: String, extrern_url: String, data: Dictionary, attribs: Array
+	name: String, descr: String, data_url: String, image_url: String, image_data: String, extra_data: Dictionary, attribute_data: Array
 ) -> String:
 	var req = self._items_api_init(call_object, call_function)
 	if req != null: return req.create_collection_item(
-		account_token, account_password, collection_id, item_id, 
-		name, descr, image_url, image_data, extrern_url, data, attribs
+		account_token, account_password, collection_id, item_id, name,
+		descr, data_url, image_url, image_data, extra_data, attribute_data
 	)
 	return ERROR_CALL_OBJECT
 

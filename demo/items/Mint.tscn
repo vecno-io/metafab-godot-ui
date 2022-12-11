@@ -1,0 +1,405 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://demo/items/Mint.gd" type="Script" id=1]
+[ext_resource path="res://demo/shared/TxnInfo.tscn" type="PackedScene" id=2]
+
+[node name="Get" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="MBox-Request" type="MarginContainer" parent="."]
+margin_right = 492.0
+margin_bottom = 564.0
+rect_pivot_offset = Vector2( -290, -263 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MBox-Request"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 476.0
+margin_bottom = 556.0
+rect_pivot_offset = Vector2( -521, -526 )
+custom_constants/separation = 16
+
+[node name="GetCollectionsGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_right = 460.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/GetCollectionsGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Public Key"
+
+[node name="PublicKeyInput" type="LineEdit" parent="MBox-Request/VBoxContainer/GetCollectionsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Space-v01" type="Label" parent="MBox-Request/VBoxContainer/GetCollectionsGrid"]
+margin_top = 35.0
+margin_right = 120.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="GetCollectionsButton" type="Button" parent="MBox-Request/VBoxContainer/GetCollectionsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "get collections"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MBox-Request/VBoxContainer/GetCollectionsGrid"]
+margin_top = 60.0
+margin_right = 120.0
+margin_bottom = 60.0
+custom_constants/separation = 16
+
+[node name="GetCollectionItemsGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 76.0
+margin_right = 460.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v06" type="Label" parent="MBox-Request/VBoxContainer/GetCollectionItemsGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Collection Id"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MBox-Request/VBoxContainer/GetCollectionItemsGrid"]
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+custom_constants/separation = 16
+
+[node name="CollectionField" type="LineEdit" parent="MBox-Request/VBoxContainer/GetCollectionItemsGrid/HBoxContainer2"]
+unique_name_in_owner = true
+margin_right = 324.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Space-v01" type="Label" parent="MBox-Request/VBoxContainer/GetCollectionItemsGrid"]
+margin_top = 35.0
+margin_right = 120.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="GetCollectionItemsButton" type="Button" parent="MBox-Request/VBoxContainer/GetCollectionItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+text = "get collection items"
+
+[node name="CreateItemsGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 144.0
+margin_right = 460.0
+margin_bottom = 296.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Id"
+
+[node name="IdField" type="LineEdit" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v07" type="Label" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 120, 0 )
+text = "Name"
+
+[node name="NameField" type="LineEdit" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v03" type="Label" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+margin_top = 69.0
+margin_right = 120.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 120, 0 )
+text = "Description"
+
+[node name="DescrField" type="LineEdit" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 64.0
+margin_right = 460.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v05" type="Label" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+margin_top = 101.0
+margin_right = 120.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 120, 0 )
+text = "Info URL"
+
+[node name="DataUrlField" type="LineEdit" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 96.0
+margin_right = 460.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v04" type="Label" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+margin_top = 133.0
+margin_right = 120.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 120, 0 )
+text = "image URL"
+
+[node name="ImageUrlField" type="LineEdit" parent="MBox-Request/VBoxContainer/CreateItemsGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 128.0
+margin_right = 460.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="MasterKeysGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 312.0
+margin_right = 460.0
+margin_bottom = 368.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v05" type="Label" parent="MBox-Request/VBoxContainer/MasterKeysGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Secret Key"
+
+[node name="SecretKeyInput" type="LineEdit" parent="MBox-Request/VBoxContainer/MasterKeysGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+secret = true
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v06" type="Label" parent="MBox-Request/VBoxContainer/MasterKeysGrid"]
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 120, 0 )
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="MBox-Request/VBoxContainer/MasterKeysGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+secret = true
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="MintItemGrid" type="GridContainer" parent="MBox-Request/VBoxContainer"]
+margin_top = 384.0
+margin_right = 460.0
+margin_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 8
+custom_constants/hseparation = 16
+columns = 2
+
+[node name="Label-v01" type="Label" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+margin_top = 5.0
+margin_right = 120.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 120, 0 )
+text = "Wallet Id"
+
+[node name="WalletInput" type="LineEdit" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_right = 460.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v02" type="Label" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+margin_top = 37.0
+margin_right = 120.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 120, 0 )
+text = "Quantity"
+
+[node name="QuantityInput" type="LineEdit" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 32.0
+margin_right = 460.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+text = "1"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Space-v01" type="Label" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+margin_top = 67.0
+margin_right = 120.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 120, 0 )
+
+[node name="MintItemButton" type="Button" parent="MBox-Request/VBoxContainer/MintItemGrid"]
+unique_name_in_owner = true
+margin_left = 136.0
+margin_top = 64.0
+margin_right = 460.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+text = "mint collection item"
+
+[node name="HSeparator" type="VSeparator" parent="."]
+margin_left = 496.0
+margin_right = 520.0
+margin_bottom = 564.0
+custom_constants/separation = 24
+
+[node name="MBox-Result" type="MarginContainer" parent="."]
+margin_left = 524.0
+margin_right = 1016.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 16
+custom_constants/margin_top = 8
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MBox-Result"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 476.0
+margin_bottom = 556.0
+custom_constants/separation = 16
+
+[node name="CollectionBox" type="ScrollContainer" parent="MBox-Result/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 460.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CollectionList" type="VBoxContainer" parent="MBox-Result/VBoxContainer/CollectionBox"]
+unique_name_in_owner = true
+margin_right = 460.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="ItemsBox" type="ScrollContainer" parent="MBox-Result/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 238.0
+margin_right = 460.0
+margin_bottom = 460.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemsList" type="VBoxContainer" parent="MBox-Result/VBoxContainer/ItemsBox"]
+unique_name_in_owner = true
+margin_right = 460.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="TxnInfo" parent="MBox-Result/VBoxContainer" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 476.0
+margin_right = 460.0
+margin_bottom = 548.0
+size_flags_vertical = 5

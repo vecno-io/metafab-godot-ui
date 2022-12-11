@@ -59,18 +59,20 @@ func create_collection(secret_key: String, password: String, chain: String) -> S
 
 func create_collection_item(
 	account_token: String, account_password: String, collection_id: String, item_id: int, name: String, 
-	descr: String, image_url: String, image_data: String, extrern_url: String, data: Dictionary, attribs: Array
+	descr: String, data_url: String, image_url: String, image_data: String, extra_data: Dictionary, attribute_data: Array
 ) -> String:
-	var payload = to_json({
+	var data = {
 		"id": item_id,
 		"name": name,
 		"description": descr,
 		"imageUrl": image_url,
 		"imageBase64": image_data,
-		"externalUrl": extrern_url,
-		"data": data,
-		"attributes": attribs,
-	})
+		"externalUrl": data_url,
+		"data": extra_data,
+		"attributes": attribute_data,
+	}
+	if !image_data.empty():
+		data["imageBase64"] = image_data
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
@@ -79,7 +81,7 @@ func create_collection_item(
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/collections/%s/items" % collection_id,
-		headers, true, HTTPClient.METHOD_POST, payload
+		headers, true, HTTPClient.METHOD_POST, to_json(data)
 	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok

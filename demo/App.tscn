@@ -1,25 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://demo/AppDemo.gd" type="Script" id=1]
 [ext_resource path="res://demo/Games.tscn" type="PackedScene" id=2]
 [ext_resource path="res://demo/Players.tscn" type="PackedScene" id=3]
 [ext_resource path="res://demo/Wallets.tscn" type="PackedScene" id=4]
 [ext_resource path="res://demo/Currencies.tscn" type="PackedScene" id=5]
+[ext_resource path="res://demo/Items.tscn" type="PackedScene" id=6]
 
 [node name="App" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 32
-custom_constants/margin_top = 32
+custom_constants/margin_top = 16
 custom_constants/margin_left = 32
-custom_constants/margin_bottom = 32
+custom_constants/margin_bottom = 16
 script = ExtResource( 1 )
 
 [node name="TabContainer" type="TabContainer" parent="."]
 margin_left = 32.0
-margin_top = 32.0
+margin_top = 16.0
 margin_right = 992.0
-margin_bottom = 568.0
+margin_bottom = 584.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/top_margin = 1
 custom_constants/side_margin = -1
 tab_align = 0
@@ -28,8 +31,15 @@ tab_align = 0
 custom_constants/hseparation = 0
 custom_constants/top_margin = 0
 
+[node name="Items" parent="TabContainer" instance=ExtResource( 6 )]
+visible = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Players" parent="TabContainer" instance=ExtResource( 3 )]
 margin_top = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/hseparation = 0
 custom_constants/top_margin = 0
 

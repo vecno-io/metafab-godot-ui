@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Container",
+"class": "AttributeItem",
+"language": "GDScript",
+"path": "res://demo/items/AttributeItem.gd"
+}, {
 "base": "OptionButton",
 "class": "ChainSelect",
 "language": "GDScript",
@@ -63,8 +68,14 @@ _global_script_classes=[ {
 "class": "MetaFabWallets",
 "language": "GDScript",
 "path": "res://addons/metafab-api/wallets/Wallets.gd"
+}, {
+"base": "Container",
+"class": "MetadataItem",
+"language": "GDScript",
+"path": "res://demo/items/MetadataItem.gd"
 } ]
 _global_script_class_icons={
+"AttributeItem": "",
 "ChainSelect": "",
 "MetaFabContracts": "",
 "MetaFabCurrencies": "",
@@ -75,7 +86,8 @@ _global_script_class_icons={
 "MetaFabRequest": "",
 "MetaFabShops": "",
 "MetaFabTransactions": "",
-"MetaFabWallets": ""
+"MetaFabWallets": "",
+"MetadataItem": ""
 }
 
 [application]
