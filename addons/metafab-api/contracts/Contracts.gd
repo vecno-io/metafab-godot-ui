@@ -17,7 +17,7 @@ func get_contracts(game_pub_key: String) -> String:
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func create_custom_contract(secret_key: String, chain: Sting, address: Sting, forwarder: Sting, abi: Sting) -> String:
+func create_custom_contract(secret_key: String, chain: String, address: String, forwarder: String, abi: String) -> String:
 	var payload = to_json({
 		"abi": abi,
 		"chain": chain,

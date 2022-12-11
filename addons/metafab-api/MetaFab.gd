@@ -65,7 +65,7 @@ func get_contracts(call_object: Object, call_function: String, game_pub_key: Str
 	return ERROR_CALL_OBJECT
 
 
-func create_custom_contract(call_object: Object, call_function: String, secret_key: String, chain: int, address: Sting, forwarder: Sting, abi: Sting) -> String:
+func create_custom_contract(call_object: Object, call_function: String, secret_key: String, chain: int, address: String, forwarder: String, abi: String) -> String:
 	var req = self._contracts_api_init(call_object, call_function)
 	if req != null: return req.create_custom_contract(secret_key, get_chain_key(chain), address, forwarder, abi)
 	return ERROR_CALL_OBJECT
@@ -468,47 +468,77 @@ func _players_api_init(call_object: Object, call_function: String) -> MetaFabPla
 	Shops API
 """
 
-func get_shops(call_object: Object, call_function: String) -> String:
+func get_shops(call_object: Object, call_function: String, game_pub_key: String) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.get_shops()
+	if req != null: return req.get_shops(game_pub_key)
 	return ERROR_CALL_OBJECT
 
-func get_shop_offer(call_object: Object, call_function: String) -> String:
+func get_shop_offer(call_object: Object, call_function: String, shop_id: String, offer_id: String) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.get_shop_offer()
+	if req != null: return req.get_shop_offer(shop_id, offer_id)
 	return ERROR_CALL_OBJECT
 
-func get_shop_offers(call_object: Object, call_function: String) -> String:
+func get_shop_offers(call_object: Object, call_function: String, shop_id: String) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.get_shop_offers()
-	return ERROR_CALL_OBJECT
-
-
-func create_shop(call_object: Object, call_function: String) -> String:
-	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.create_shop()
+	if req != null: return req.get_shop_offers(shop_id)
 	return ERROR_CALL_OBJECT
 
 
-func set_shop_offer(call_object: Object, call_function: String) -> String:
+func create_shop(call_object: Object, call_function: String, secret_key: String, secret_password: String, chain: String) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.set_shop_offer()
-	return ERROR_CALL_OBJECT
-
-func remove_shop_offer(call_object: Object, call_function: String) -> String:
-	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.remove_shop_offer()
+	if req != null: return req.create_shop(secret_key, secret_password, chain)
 	return ERROR_CALL_OBJECT
 
 
-func use_shop_offer(call_object: Object, call_function: String) -> String:
+func set_shop_offer(
+	call_object: Object, call_function: String, 
+	secret_key: String, secret_password: String, 
+	shop_id: String, offer_id: int, max_uses: int,
+	input_currency: String, output_currency: String, 
+	input_currency_amounts: Array, output_currency_amounts: Array,
+	input_collection: String, output_collection: String, 
+	input_collection_ids: Array, output_collection_ids: Array,
+	input_collection_amounts: Array, output_collection_amounts: Array,
+	input_currency_id: bool = true, output_currency_id: bool = true, 
+	input_collection_id: bool = true, output_collection_id: bool = true
+) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.use_shop_offer()
+	if req != null: return req.set_shop_offer(
+		secret_key, secret_password, 
+		shop_id, offer_id, max_uses,
+		input_currency, output_currency, 
+		input_currency_amounts, output_currency_amounts,
+		input_collection, output_collection, 
+		input_collection_ids, output_collection_ids,
+		input_collection_amounts, output_collection_amounts,
+		input_currency_id, output_currency_id, 
+		input_collection_id, output_collection_id
+	)
 	return ERROR_CALL_OBJECT
 
-func withdraw_from_shop(call_object: Object, call_function: String) -> String:
+func remove_shop_offer(call_object: Object, call_function: String, secret_key: String, secret_password: String, shop_id: String, offer_id: String) -> String:
 	var req = self._shops_api_init(call_object, call_function)
-	if req != null: return req.withdraw_from_shop()
+	if req != null: return req.remove_shop_offer(secret_key, secret_password, shop_id, offer_id)
+	return ERROR_CALL_OBJECT
+
+
+func use_shop_offer(call_object: Object, call_function: String, account_token: String, account_password: String, shop_id: String, offer_id: String) -> String:
+	var req = self._shops_api_init(call_object, call_function)
+	if req != null: return req.use_shop_offer(account_token, account_password, shop_id, offer_id)
+	return ERROR_CALL_OBJECT
+
+func withdraw_from_shop(
+	call_object: Object, call_function: String,
+	secret_key: String, secret_password: String, shop_id: String,
+	reciever: String, currency: String, collection: String, item_ids: Array,
+	reciever_id: bool = true, currency_id: bool = true, collection_id: bool = true
+) -> String:
+	var req = self._shops_api_init(call_object, call_function)
+	if req != null: return req.withdraw_from_shop(
+		secret_key, secret_password, shop_id,
+		reciever, currency, collection, item_ids,
+		reciever_id, currency_id, collection_id
+	)
 	return ERROR_CALL_OBJECT
 
 

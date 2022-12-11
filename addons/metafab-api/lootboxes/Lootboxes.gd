@@ -113,7 +113,7 @@ func open_lootbox_manager_lootbox(account_token: String, account_password: Strin
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/lootboxManagers/%s/lootboxes/%s/opens" % [manager_id, lootbox_id], 
-		headers, true, HTTPClient.METHOD_POST, payload
+		headers, true, HTTPClient.METHOD_POST
 	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
