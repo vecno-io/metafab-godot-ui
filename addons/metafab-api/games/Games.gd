@@ -45,8 +45,29 @@ func create_game(name: String, email: String, password: String) -> String:
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func update_game(game_id: String, secret_key: String, game_info: Dictionary) -> String:
-	var payload = to_json(game_info)
+func update_game(
+	game_id: String, secret_key: String, name: String, email: String, icon_base64: String, cover_base64: String, 
+	old_password: String = "", new_password: String = "", rpcs: Dictionary = {}, redirects: Array = [], 
+	reset_pub_key: bool = false, reset_priv_key: bool = false
+) -> String:
+	var payload = {
+		"rpcs": rpcs,
+		"redirectUris": redirects,
+		"resetPublishedKey": reset_pub_key,
+		"resetSecretKey": reset_priv_key,
+	}
+	if not name.empty(): 
+		payload["name"] = name
+	if not email.empty(): 
+		payload["email"] = email
+	if not old_password.empty(): 
+		payload["currentPassword"] = old_password
+	if not new_password.empty(): 
+		payload["newPassword"] = new_password
+	if not icon_base64.empty(): 
+		payload["iconImageBase64"] = icon_base64
+	if not cover_base64.empty(): 
+		payload["coverImageBase64"] = cover_base64
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
@@ -54,7 +75,7 @@ func update_game(game_id: String, secret_key: String, game_info: Dictionary) -> 
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/games/%s" % game_id, 
-		headers, true, HTTPClient.METHOD_PATCH, payload
+		headers, true, HTTPClient.METHOD_PATCH, to_json(payload)
 	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok

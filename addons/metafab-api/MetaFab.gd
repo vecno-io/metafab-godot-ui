@@ -195,9 +195,17 @@ func create_game(call_object: Object, call_function: String, name: String, email
 	if req != null: return req.create_game(name, email, password)
 	return ERROR_CALL_OBJECT
 
-func update_game(call_object: Object, call_function: String, game_id: String, secret_key: String, game_info: Dictionary) -> String:
+func update_game(
+	call_object: Object, call_function: String, game_id: String, secret_key: String, name: String, email: String, 
+	icon_base64: String, cover_base64: String, old_password: String = "", new_password: String = "", 
+	rpcs: Dictionary = {}, redirects: Array = [], reset_pub_key: bool = false, reset_priv_key: bool = false
+) -> String:
 	var req = self._games_api_init(call_object, call_function)
-	if req != null: return req.update_game(game_id, secret_key, game_info)
+	if req != null: return req.update_game(
+		game_id, secret_key, name, email, icon_base64, cover_base64, 
+		old_password, new_password, rpcs, redirects, 
+		reset_pub_key, reset_priv_key
+)
 	return ERROR_CALL_OBJECT
 
 

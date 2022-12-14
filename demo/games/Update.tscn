@@ -116,6 +116,7 @@ margin_top = 144.0
 margin_right = 464.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 160, 0 )
+secret = true
 caret_blink = true
 caret_blink_speed = 0.5
 
@@ -134,49 +135,108 @@ margin_right = 464.0
 margin_bottom = 204.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
+secret = true
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v09" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 221.0
+margin_right = 120.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 120, 0 )
+text = "Icon Image"
+
+[node name="IconBase64Input" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 216.0
+margin_right = 464.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 160, 0 )
+placeholder_text = "base64"
+placeholder_alpha = 0.4
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v10" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 257.0
+margin_right = 120.0
+margin_bottom = 271.0
+rect_min_size = Vector2( 120, 0 )
+text = "Cover Image"
+
+[node name="CoverBase64Input" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 252.0
+margin_right = 464.0
+margin_bottom = 276.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+placeholder_text = "base64"
+placeholder_alpha = 0.4
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label-v11" type="Label" parent="MBox-Request/GridContainer"]
+margin_top = 293.0
+margin_right = 120.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 120, 0 )
+text = "Allowed Redirect"
+
+[node name="RedirectUrlInput" type="LineEdit" parent="MBox-Request/GridContainer"]
+unique_name_in_owner = true
+margin_left = 132.0
+margin_top = 288.0
+margin_right = 464.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+placeholder_alpha = 0.4
 caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Label-v07" type="Label" parent="MBox-Request/GridContainer"]
-margin_top = 221.0
+margin_top = 329.0
 margin_right = 120.0
-margin_bottom = 235.0
+margin_bottom = 343.0
 rect_min_size = Vector2( 120, 0 )
 text = "Reset Public Key"
 
 [node name="ResetPublicKey" type="CheckBox" parent="MBox-Request/GridContainer"]
 unique_name_in_owner = true
 margin_left = 132.0
-margin_top = 216.0
+margin_top = 324.0
 margin_right = 464.0
-margin_bottom = 240.0
+margin_bottom = 348.0
 
 [node name="Label-v08" type="Label" parent="MBox-Request/GridContainer"]
-margin_top = 257.0
+margin_top = 365.0
 margin_right = 120.0
-margin_bottom = 271.0
+margin_bottom = 379.0
 rect_min_size = Vector2( 120, 0 )
 text = "Reset Secret Key"
 
 [node name="ResetSecretKey" type="CheckBox" parent="MBox-Request/GridContainer"]
 unique_name_in_owner = true
 margin_left = 132.0
-margin_top = 252.0
+margin_top = 360.0
 margin_right = 464.0
-margin_bottom = 276.0
+margin_bottom = 384.0
 
 [node name="Space-v01" type="Label" parent="MBox-Request/GridContainer"]
-margin_top = 291.0
+margin_top = 399.0
 margin_right = 120.0
-margin_bottom = 305.0
+margin_bottom = 413.0
 rect_min_size = Vector2( 120, 0 )
 
 [node name="SubmitButton" type="Button" parent="MBox-Request/GridContainer"]
 unique_name_in_owner = true
 margin_left = 132.0
-margin_top = 288.0
+margin_top = 396.0
 margin_right = 464.0
-margin_bottom = 308.0
+margin_bottom = 416.0
 text = "Submit"
 
 [node name="HSeparator" type="VSeparator" parent="."]
@@ -198,6 +258,13 @@ custom_constants/margin_bottom = 8
 
 [node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
 unique_name_in_owner = true
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 576.0
+margin_right = 480.0
+margin_bottom = 592.0
 
 [node name="GameResult" parent="MBox-Result" instance=ExtResource( 3 )]
 unique_name_in_owner = true
