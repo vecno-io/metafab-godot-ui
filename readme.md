@@ -1,16 +1,16 @@
-# Godot API client for metafab
+# Demo UI for Godot Netafab API
 
-> WIP: This add-on is under construction; naming, structure, and functionality might change.
-
-An add-on for the Godot engine that wraps the MetaFab's API into simple HTTPRequest nodes while providing a static interface with callbacks that behave like one-off signals.
+A UI that demonstartes the functionality the MetaFab's API using the related godot addon.
 
 ## Overview
 
 * Godot Engine: 3.5.1 (4.x)
-* MetaFab API version: 1.3.0
+* Godot MetaFab API: 1.0.0
+* MetaFab API Version: 1.3.0
 
-An add-on for the Godot engine that wraps the MetaFab's API into simple HTTPRequest nodes while providing a static interface class with callbacks that behave like signals.
+Demo for a Godot Engine add-on that wraps the MetaFab's API into simple HTTPRequest nodes while providing a static interface class with callbacks that behave like one-off signals.
 
 ---
 
+The Godot Engine add-on can be found at: https://github.com/vecno-io/metafab-godot
 A complete MetaFab API references and guides can be found at: https://trymetafab.com
