@@ -58,8 +58,14 @@ func create_player(game_pub_key: String, username: String, password: String) -> 
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok
 
-func update_player(player_id: String, access_token: String, player_info: Dictionary) -> String:
-	var payload = to_json(player_info)
+func update_player(player_id: String, access_token: String, old_password: String = "", new_password: String = "", reset_access_token: bool = false) -> String:
+	var payload = {
+		"resetAccessToken": reset_access_token
+	}
+	if not old_password.empty():
+		payload["currentPassword"] = old_password
+	if not new_password.empty():
+		payload["newPassword"] = new_password
 	var headers = [
 		"accept: application/json",
 		"content-type: application/json",
@@ -67,7 +73,7 @@ func update_player(player_id: String, access_token: String, player_info: Diction
 	]
 	var err = self.request(
 		"https://api.trymetafab.com/v1/players/%s" % player_id, 
-		headers, true, HTTPClient.METHOD_PATCH, payload
+		headers, true, HTTPClient.METHOD_PATCH, to_json(payload)
 	)
 	if err != OK:  return MetaFabRequest.get_error(err) % name
 	else: return MetaFabRequest.Ok

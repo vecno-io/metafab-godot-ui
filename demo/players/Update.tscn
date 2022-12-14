@@ -80,6 +80,7 @@ margin_top = 72.0
 margin_right = 464.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 160, 0 )
+secret = true
 caret_blink = true
 caret_blink_speed = 0.5
 
@@ -98,6 +99,7 @@ margin_right = 464.0
 margin_bottom = 132.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 3
+secret = true
 caret_blink = true
 caret_blink_speed = 0.5
 
@@ -149,6 +151,13 @@ custom_constants/margin_bottom = 8
 
 [node name="ErrorBox" parent="MBox-Result" instance=ExtResource( 2 )]
 unique_name_in_owner = true
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 576.0
+margin_right = 480.0
+margin_bottom = 592.0
 
 [node name="PlayerResult" parent="MBox-Result" instance=ExtResource( 3 )]
 unique_name_in_owner = true

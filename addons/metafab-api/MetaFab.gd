@@ -443,9 +443,9 @@ func create_player(call_object: Object, call_function: String, game_pub_key: Str
 	if req != null: return req.create_player(game_pub_key, username, password)
 	return ERROR_CALL_OBJECT
 
-func update_player(call_object: Object, call_function: String, player_id: String, access_token: String, player_info: Dictionary) -> String:
+func update_player(call_object: Object, call_function: String, player_id: String, access_token: String, old_password: String = "", new_password: String = "", reset_access_token: bool = false) -> String:
 	var req = self._players_api_init(call_object, call_function)
-	if req != null: return req.update_player(player_id, access_token, player_info)
+	if req != null: return req.update_player(player_id, access_token, old_password, new_password, reset_access_token)
 	return ERROR_CALL_OBJECT
 
 

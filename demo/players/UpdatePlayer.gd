@@ -17,11 +17,10 @@ func _on_submit_pressed():
 	print("[%s] _on_submit_pressed: %s" % [name, id_input.text])
 	# Note: In real world cases it might be wise to hash 
 	# the password with the game id for increased security.
-	var player_info = {}
-	player_info["resetAccessToken"] = reset_token_check.pressed
-	if !new_pass_input.text.empty(): player_info["newPassword"] = new_pass_input.text
-	if !old_pass_input.text.empty(): player_info["currentPassword"] = old_pass_input.text
-	var res = MetaFab.update_player(self, "_on_request_result", id_input.text, token_input, player_info)
+	var res = MetaFab.update_player(
+		self, "_on_request_result", id_input.text, token_input,
+		old_pass_input.text, new_pass_input.text, reset_token_check.pressed
+	)
 	if res == MetaFabRequest.Ok: self._clear()
 	else: self._show_error(-1, res)
 
